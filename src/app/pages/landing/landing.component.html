@@ -1,0 +1,107 @@
+<section class="menu-page">
+	<div class="menu-hero">
+		<div class="menu-shell">
+			<header class="menu-topbar">
+				<div class="menu-brand">
+					<div class="menu-emblem" aria-hidden="true">SF</div>
+					<div>
+						<p class="menu-brand-label">Ресторан</p>
+						<h1 class="menu-title">Стара фортеця</h1>
+						<p class="menu-subtitle">Кам&apos;янець-Подільський</p>
+					</div>
+				</div>
+				<div class="menu-meta">
+					<div class="menu-meta-item">
+						<span class="material-symbols-outlined" aria-hidden="true">location_on</span>
+						<span>вул. Вали, 1, Кам&apos;янець-Подільський</span>
+					</div>
+					<div class="menu-meta-item">
+						<span class="material-symbols-outlined" aria-hidden="true">schedule</span>
+						<span>Щодня 11:00–23:00</span>
+					</div>
+					<div class="menu-meta-item">
+						<span class="material-symbols-outlined" aria-hidden="true">call</span>
+						<span>+38 (0__) ___-__-__</span>
+					</div>
+				</div>
+			</header>
+
+			<div class="menu-hero-body">
+				<div class="menu-hero-copy">
+					<p class="menu-kicker">Меню ресторану</p>
+					<h2 class="menu-hero-title">Авторська кухня та атмосфера фортеці</h2>
+					<p class="menu-hero-text">
+						Витончені страви, локальні інгредієнти та подача, що підкреслює характер
+						старовинного міста.
+					</p>
+					<div class="menu-tags">
+						<span class="menu-tag">Банкети</span>
+						<span class="menu-tag">Весілля</span>
+						<span class="menu-tag">Авторські сети</span>
+					</div>
+				</div>
+				<div class="menu-hero-card">
+					<p class="menu-card-title">Фірмова подача</p>
+					<p class="menu-card-text">
+						Ми формуємо меню під настрій вечора — від легких закусок до головних
+						страв зі сміливими соусами.
+					</p>
+					<div class="menu-card-foot">
+						<span class="material-symbols-outlined" aria-hidden="true">restaurant_menu</span>
+						<span>Перша сторінка меню</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="menu-shell menu-content">
+		<section class="menu-grid">
+			@for (section of menuSections(); track section.id) {
+				<article class="menu-section">
+					<header class="menu-section-header">
+						<div>
+							<h3 class="menu-section-title">{{ section.name }}</h3>
+							<p class="menu-section-text">{{ section.description }}</p>
+						</div>
+						<span class="menu-section-badge">Авторське</span>
+					</header>
+
+					<div class="menu-items">
+						@for (item of section.items; track item.id) {
+							<div class="menu-item">
+								<div class="menu-item-head">
+									<span class="menu-item-name">{{ item.name }}</span>
+									<span class="menu-item-dots" aria-hidden="true"></span>
+									<span class="menu-item-price">{{ item.price }}</span>
+								</div>
+								<p class="menu-item-desc">{{ item.description }}</p>
+								<p class="menu-item-meta">{{ item.weight }}</p>
+							</div>
+						}
+					</div>
+				</article>
+			}
+		</section>
+
+		<section class="menu-gallery">
+			<div class="menu-gallery-head">
+				<h3 class="menu-section-title">Фотографії меню</h3>
+				<p class="menu-section-text">
+					Фото будуть оброблені у преміум-стилі після отримання матеріалів.
+				</p>
+			</div>
+			<div class="menu-gallery-grid">
+				<div class="menu-photo">
+					<span>Фото меню 1</span>
+				</div>
+				<div class="menu-photo">
+					<span>Фото меню 2</span>
+				</div>
+				<div class="menu-photo">
+					<span>Фото меню 3</span>
+				</div>
+			</div>
+		</section>
+	</div>
+</section>

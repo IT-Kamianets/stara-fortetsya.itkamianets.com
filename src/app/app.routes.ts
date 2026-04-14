@@ -7,6 +7,11 @@ export const routes: Routes = [
 			import('./pages/landing/landing.component').then((m) => m.LandingComponent),
 	},
 	{
+		path: 'events',
+		loadComponent: () =>
+			import('./pages/events/events.component').then((m) => m.EventsComponent),
+	},
+	{
 		path: '**',
 		redirectTo: '/',
 	},

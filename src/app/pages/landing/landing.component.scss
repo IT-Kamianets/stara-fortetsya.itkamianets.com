@@ -144,6 +144,40 @@
 	flex-wrap: wrap;
 }
 
+.menu-cta-wrap {
+	display: flex;
+	gap: 16px;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-top: 20px;
+}
+
+.menu-cta {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 12px 22px;
+	border-radius: 999px;
+	border: 1px solid rgba(255, 255, 255, 0.35);
+	text-decoration: none;
+	color: #f5efe7;
+	font-weight: 600;
+	letter-spacing: 0.5px;
+	background: rgba(255, 255, 255, 0.14);
+	box-shadow: 0 12px 26px rgba(0, 0, 0, 0.25);
+	transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.menu-cta:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 16px 30px rgba(0, 0, 0, 0.3);
+}
+
+.menu-cta-note {
+	font-size: 13px;
+	color: rgba(245, 239, 231, 0.7);
+}
+
 .menu-tag {
 	border: 1px solid rgba(255, 255, 255, 0.25);
 	padding: 6px 14px;

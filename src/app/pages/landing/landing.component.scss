@@ -287,6 +287,13 @@
 	color: #8a7a6f;
 }
 
+.menu-empty {
+	margin: 0;
+	font-size: 13px;
+	color: #6b5f56;
+	line-height: 1.5;
+}
+
 .menu-gallery {
 	margin-top: 40px;
 }
@@ -301,27 +308,88 @@
 	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
-.menu-photo {
+.menu-gallery-grid--photos {
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.menu-photo-card {
 	position: relative;
-	height: 200px;
-	border-radius: 20px;
-	background: linear-gradient(135deg, #2f241c 0%, #4e3c2f 50%, #2a211a 100%);
-	border: 1px solid rgba(88, 69, 54, 0.4);
+	border-radius: 18px;
+	background: #1f1914;
+	color: #f1e9df;
+	padding: 14px;
+	border: 1px solid rgba(95, 74, 59, 0.35);
+	box-shadow: 0 18px 38px rgba(26, 19, 13, 0.24);
 	display: grid;
-	place-items: center;
-	color: rgba(255, 255, 255, 0.7);
-	letter-spacing: 2px;
-	text-transform: uppercase;
-	font-size: 12px;
+	gap: 12px;
+	transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.menu-photo-card--tall {
+	padding: 16px;
+}
+
+.menu-photo-card:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 24px 46px rgba(26, 19, 13, 0.35);
+}
+
+.menu-photo-card::after {
+	content: '';
+	position: absolute;
+	inset: 8px;
+	border-radius: 16px;
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	pointer-events: none;
+}
+
+.menu-photo-media {
+	position: relative;
+	border-radius: 14px;
 	overflow: hidden;
 }
 
-.menu-photo::after {
+.menu-photo-media::after {
 	content: '';
 	position: absolute;
-	inset: 12px;
-	border-radius: 16px;
-	border: 1px dashed rgba(255, 255, 255, 0.2);
+	inset: 0;
+	background: linear-gradient(
+		to bottom,
+		rgba(0, 0, 0, 0.05),
+		rgba(0, 0, 0, 0.3)
+	);
+	mix-blend-mode: multiply;
+	pointer-events: none;
+}
+
+.menu-photo-img {
+	width: 100%;
+	height: 220px;
+	object-fit: cover;
+	border-radius: 14px;
+	filter: contrast(1.08) saturate(1.12) brightness(0.98);
+	box-shadow:
+		0 12px 24px rgba(0, 0, 0, 0.28),
+		inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+	background: #2b221c;
+	display: block;
+}
+
+.menu-photo-card--tall .menu-photo-img {
+	height: 260px;
+}
+
+.menu-photo-title {
+	margin: 0 0 6px;
+	font-weight: 600;
+	font-size: 15px;
+}
+
+.menu-photo-text {
+	margin: 0;
+	color: rgba(241, 233, 223, 0.7);
+	font-size: 12px;
+	line-height: 1.5;
 }
 
 @keyframes menu-fade {
@@ -348,10 +416,17 @@
 	.menu-hero-card {
 		padding: 20px;
 	}
+
+	.menu-photo-img,
+	.menu-photo-card--tall .menu-photo-img {
+		height: 200px;
+	}
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.menu-section {
+	.menu-section,
+	.menu-photo-card {
 		animation: none;
+		transition: none;
 	}
 }

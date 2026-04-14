@@ -17,11 +17,11 @@
 					</div>
 					<div class="menu-meta-item">
 						<span class="material-symbols-outlined" aria-hidden="true">schedule</span>
-						<span>Щодня 11:00–23:00</span>
+						<span>Графік роботи уточнюйте</span>
 					</div>
 					<div class="menu-meta-item">
 						<span class="material-symbols-outlined" aria-hidden="true">call</span>
-						<span>+38 (0__) ___-__-__</span>
+						<span>+38 (067) 493 9000</span>
 					</div>
 				</div>
 			</header>
@@ -67,40 +67,82 @@
 						<span class="menu-section-badge">Авторське</span>
 					</header>
 
-					<div class="menu-items">
-						@for (item of section.items; track item.id) {
-							<div class="menu-item">
-								<div class="menu-item-head">
-									<span class="menu-item-name">{{ item.name }}</span>
-									<span class="menu-item-dots" aria-hidden="true"></span>
-									<span class="menu-item-price">{{ item.price }}</span>
+					@if (section.items.length) {
+						<div class="menu-items">
+							@for (item of section.items; track item.id) {
+								<div class="menu-item">
+									<div class="menu-item-head">
+										<span class="menu-item-name">{{ item.name }}</span>
+										<span class="menu-item-dots" aria-hidden="true"></span>
+										@if (item.price) {
+											<span class="menu-item-price">{{ item.price }}</span>
+										}
+									</div>
+									<p class="menu-item-desc">{{ item.description }}</p>
+									@if (item.weight) {
+										<p class="menu-item-meta">{{ item.weight }}</p>
+									}
 								</div>
-								<p class="menu-item-desc">{{ item.description }}</p>
-								<p class="menu-item-meta">{{ item.weight }}</p>
-							</div>
-						}
-					</div>
+							}
+						</div>
+					} @else {
+						<p class="menu-empty">Повний перелік страв та цін дивіться у фотоменю нижче.</p>
+					}
 				</article>
 			}
 		</section>
 
 		<section class="menu-gallery">
 			<div class="menu-gallery-head">
-				<h3 class="menu-section-title">Фотографії меню</h3>
+				<h3 class="menu-section-title">Меню у фотографіях</h3>
 				<p class="menu-section-text">
-					Фото будуть оброблені у преміум-стилі після отримання матеріалів.
+					Сторінки меню відскановані для повного переліку страв та цін.
 				</p>
 			</div>
 			<div class="menu-gallery-grid">
-				<div class="menu-photo">
-					<span>Фото меню 1</span>
-				</div>
-				<div class="menu-photo">
-					<span>Фото меню 2</span>
-				</div>
-				<div class="menu-photo">
-					<span>Фото меню 3</span>
-				</div>
+				@for (photo of menuPages(); track photo.id) {
+					<figure class="menu-photo-card">
+						<div class="menu-photo-media">
+							<img
+								class="menu-photo-img"
+								[src]="photo.src"
+								[alt]="photo.title"
+								loading="lazy"
+							/>
+						</div>
+						<figcaption>
+							<p class="menu-photo-title">{{ photo.title }}</p>
+							<p class="menu-photo-text">{{ photo.description }}</p>
+						</figcaption>
+					</figure>
+				}
+			</div>
+		</section>
+
+		<section class="menu-gallery">
+			<div class="menu-gallery-head">
+				<h3 class="menu-section-title">Фотогалерея страв</h3>
+				<p class="menu-section-text">
+					Преміальна обробка подачі та атмосфери ресторану.
+				</p>
+			</div>
+			<div class="menu-gallery-grid menu-gallery-grid--photos">
+				@for (photo of dishPhotos(); track photo.id) {
+					<figure class="menu-photo-card menu-photo-card--tall">
+						<div class="menu-photo-media">
+							<img
+								class="menu-photo-img"
+								[src]="photo.src"
+								[alt]="photo.title"
+								loading="lazy"
+							/>
+						</div>
+						<figcaption>
+							<p class="menu-photo-title">{{ photo.title }}</p>
+							<p class="menu-photo-text">{{ photo.description }}</p>
+						</figcaption>
+					</figure>
+				}
 			</div>
 		</section>
 	</div>

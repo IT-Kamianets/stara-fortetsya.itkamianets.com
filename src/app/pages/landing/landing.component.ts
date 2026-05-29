@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { TranslatePipe } from 'wacom';
 
 type MenuItem = {
 	id: string;
@@ -23,6 +24,7 @@ type MenuPhoto = {
 };
 
 @Component({
+	imports: [TranslatePipe],
 	templateUrl: './landing.component.html',
 	styleUrl: './landing.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,

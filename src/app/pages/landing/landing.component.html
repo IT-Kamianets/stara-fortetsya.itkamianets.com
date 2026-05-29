@@ -5,19 +5,19 @@
 				<div class="menu-brand">
 					<img class="menu-emblem" src="/assets/logo.png" alt="Стара фортеця" />
 					<div>
-						<p class="menu-brand-label">Ресторан</p>
-						<h1 class="menu-title">Стара фортеця</h1>
-						<p class="menu-subtitle">Кам&apos;янець-Подільський</p>
+						<p class="menu-brand-label">{{ 'Ресторан' | translate }}</p>
+						<h1 class="menu-title">{{ 'Стара фортеця' | translate }}</h1>
+						<p class="menu-subtitle">{{ "Кам'янець-Подільський" | translate }}</p>
 					</div>
 				</div>
 				<div class="menu-meta">
 					<div class="menu-meta-item">
 						<span class="material-symbols-outlined" aria-hidden="true">location_on</span>
-						<span>вул. Вали, 1, Кам&apos;янець-Подільський</span>
+						<span>{{ "вул. Вали, 1, Кам'янець-Подільський" | translate }}</span>
 					</div>
 					<div class="menu-meta-item">
 						<span class="material-symbols-outlined" aria-hidden="true">schedule</span>
-						<span>Графік роботи уточнюйте</span>
+						<span>{{ 'Графік роботи уточнюйте' | translate }}</span>
 					</div>
 					<div class="menu-meta-item">
 						<span class="material-symbols-outlined" aria-hidden="true">call</span>
@@ -28,31 +28,25 @@
 
 			<div class="menu-hero-body">
 				<div class="menu-hero-copy">
-					<p class="menu-kicker">Меню ресторану</p>
-					<h2 class="menu-hero-title">Авторська кухня та атмосфера фортеці</h2>
-					<p class="menu-hero-text">
-						Витончені страви, локальні інгредієнти та подача, що підкреслює характер
-						старовинного міста.
-					</p>
+					<p class="menu-kicker">{{ 'Меню ресторану' | translate }}</p>
+					<h2 class="menu-hero-title">{{ 'Авторська кухня та атмосфера фортеці' | translate }}</h2>
+					<p class="menu-hero-text">{{ 'Витончені страви, локальні інгредієнти та подача, що підкреслює характер старовинного міста.' | translate }}</p>
 					<div class="menu-tags">
-						<span class="menu-tag">Банкети</span>
-						<span class="menu-tag">Весілля</span>
-						<span class="menu-tag">Авторські сети</span>
+						<span class="menu-tag">{{ 'Банкети' | translate }}</span>
+						<span class="menu-tag">{{ 'Весілля' | translate }}</span>
+						<span class="menu-tag">{{ 'Авторські сети' | translate }}</span>
 					</div>
 					<div class="menu-cta-wrap">
-						<a class="menu-cta" href="/events">Івенти та свята</a>
-						<span class="menu-cta-note">Організація подій під ключ</span>
+						<a class="menu-cta" href="/events">{{ 'Події та свята' | translate }}</a>
+						<span class="menu-cta-note">{{ 'Організація подій під ключ' | translate }}</span>
 					</div>
 				</div>
 				<div class="menu-hero-card">
-					<p class="menu-card-title">Фірмова подача</p>
-					<p class="menu-card-text">
-						Ми формуємо меню під настрій вечора — від легких закусок до головних
-						страв зі сміливими соусами.
-					</p>
+					<p class="menu-card-title">{{ 'Фірмова подача' | translate }}</p>
+					<p class="menu-card-text">{{ 'Ми формуємо меню під настрій вечора — від легких закусок до головних страв зі сміливими соусами.' | translate }}</p>
 					<div class="menu-card-foot">
 						<span class="material-symbols-outlined" aria-hidden="true">restaurant_menu</span>
-						<span>Перша сторінка меню</span>
+						<span>{{ 'Перша сторінка меню' | translate }}</span>
 					</div>
 				</div>
 			</div>
@@ -65,10 +59,10 @@
 				<article class="menu-section">
 					<header class="menu-section-header">
 						<div>
-							<h3 class="menu-section-title">{{ section.name }}</h3>
-							<p class="menu-section-text">{{ section.description }}</p>
+							<h3 class="menu-section-title">{{ section.name | translate }}</h3>
+							<p class="menu-section-text">{{ section.description | translate }}</p>
 						</div>
-						<span class="menu-section-badge">Авторське</span>
+						<span class="menu-section-badge">{{ 'Авторське' | translate }}</span>
 					</header>
 
 					@if (section.items.length) {
@@ -76,13 +70,13 @@
 							@for (item of section.items; track item.id) {
 								<div class="menu-item">
 									<div class="menu-item-head">
-										<span class="menu-item-name">{{ item.name }}</span>
+										<span class="menu-item-name">{{ item.name | translate }}</span>
 										<span class="menu-item-dots" aria-hidden="true"></span>
 										@if (item.price) {
 											<span class="menu-item-price">{{ item.price }}</span>
 										}
 									</div>
-									<p class="menu-item-desc">{{ item.description }}</p>
+									<p class="menu-item-desc">{{ item.description | translate }}</p>
 									@if (item.weight) {
 										<p class="menu-item-meta">{{ item.weight }}</p>
 									}
@@ -90,7 +84,7 @@
 							}
 						</div>
 					} @else {
-						<p class="menu-empty">Повний перелік страв та цін дивіться у фотоменю нижче.</p>
+						<p class="menu-empty">{{ 'Повний перелік страв та цін дивіться у фотоменю нижче.' | translate }}</p>
 					}
 				</article>
 			}
@@ -98,25 +92,18 @@
 
 		<section class="menu-gallery">
 			<div class="menu-gallery-head">
-				<h3 class="menu-section-title">Меню у фотографіях</h3>
-				<p class="menu-section-text">
-					Сторінки меню відскановані для повного переліку страв та цін.
-				</p>
+				<h3 class="menu-section-title">{{ 'Меню у фотографіях' | translate }}</h3>
+				<p class="menu-section-text">{{ 'Сторінки меню відскановані для повного переліку страв та цін.' | translate }}</p>
 			</div>
 			<div class="menu-gallery-grid">
 				@for (photo of menuPages(); track photo.id) {
 					<figure class="menu-photo-card">
 						<div class="menu-photo-media">
-							<img
-								class="menu-photo-img"
-								[src]="photo.src"
-								[alt]="photo.title"
-								loading="lazy"
-							/>
+							<img class="menu-photo-img" [src]="photo.src" [alt]="photo.title" loading="lazy" />
 						</div>
 						<figcaption>
-							<p class="menu-photo-title">{{ photo.title }}</p>
-							<p class="menu-photo-text">{{ photo.description }}</p>
+							<p class="menu-photo-title">{{ photo.title | translate }}</p>
+							<p class="menu-photo-text">{{ photo.description | translate }}</p>
 						</figcaption>
 					</figure>
 				}
@@ -125,25 +112,18 @@
 
 		<section class="menu-gallery">
 			<div class="menu-gallery-head">
-				<h3 class="menu-section-title">Фотогалерея страв</h3>
-				<p class="menu-section-text">
-					Преміальна обробка подачі та атмосфери ресторану.
-				</p>
+				<h3 class="menu-section-title">{{ 'Фотогалерея страв' | translate }}</h3>
+				<p class="menu-section-text">{{ 'Преміальна обробка подачі та атмосфери ресторану.' | translate }}</p>
 			</div>
 			<div class="menu-gallery-grid menu-gallery-grid--photos">
 				@for (photo of dishPhotos(); track photo.id) {
 					<figure class="menu-photo-card menu-photo-card--tall">
 						<div class="menu-photo-media">
-							<img
-								class="menu-photo-img"
-								[src]="photo.src"
-								[alt]="photo.title"
-								loading="lazy"
-							/>
+							<img class="menu-photo-img" [src]="photo.src" [alt]="photo.title" loading="lazy" />
 						</div>
 						<figcaption>
-							<p class="menu-photo-title">{{ photo.title }}</p>
-							<p class="menu-photo-text">{{ photo.description }}</p>
+							<p class="menu-photo-title">{{ photo.title | translate }}</p>
+							<p class="menu-photo-text">{{ photo.description | translate }}</p>
 						</figcaption>
 					</figure>
 				}

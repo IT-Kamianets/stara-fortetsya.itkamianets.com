@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { TranslatePipe } from 'wacom';
 
 const EVENT_TYPES = [
 	{
@@ -112,7 +113,7 @@ const IDEAS = [
 
 @Component({
 	selector: 'app-events',
-	standalone: true,
+	imports: [TranslatePipe],
 	templateUrl: './events.component.html',
 	styleUrl: './events.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,

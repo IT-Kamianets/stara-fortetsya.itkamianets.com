@@ -52,13 +52,12 @@ export class LanguageService {
 	}
 
 	private buildTranslations(language: LanguageCode): Translate[] {
-		if (language === 'en') {
+		if (language === 'ua') {
 			return [];
 		}
 
 		return Object.entries(translates).flatMap(([sourceText, translationMap]) => {
 			const text = translationMap[language];
-
 			return text ? [{ sourceText, text }] : [];
 		});
 	}

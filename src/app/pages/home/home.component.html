@@ -1,0 +1,133 @@
+<div class="home-page">
+
+	<section class="home-hero">
+		<div class="home-shell">
+			<div class="home-hero-content">
+				<p class="home-kicker">{{ 'Ресторан у Кам\'янець-Подільському' | translate }}</p>
+				<h1 class="home-title">{{ 'Стара фортеця' | translate }}</h1>
+				<p class="home-subtitle">
+					{{ 'Авторська кухня, літня тераса з видом на каньйон Смотрича та атмосфера середньовічного міста — у самому серці Кам\'янця.' | translate }}
+				</p>
+				<div class="home-hero-actions">
+					<a class="home-cta-primary" routerLink="/menu">
+						<span class="material-symbols-outlined" aria-hidden="true">restaurant_menu</span>
+						{{ 'Переглянути меню' | translate }}
+					</a>
+					<a class="home-cta-secondary" routerLink="/contacts">
+						{{ 'Забронювати стіл' | translate }}
+					</a>
+				</div>
+			</div>
+			<div class="home-hero-badge">
+				<div class="home-badge-inner">
+					<span class="home-badge-score">4.5</span>
+					<span class="home-badge-stars">★★★★½</span>
+					<span class="home-badge-source">TripAdvisor</span>
+					<span class="home-badge-rank">#1 у Кам'янці</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="home-shell home-features">
+		<div class="home-section-head">
+			<h2 class="home-section-title">{{ 'Чому обирають нас' | translate }}</h2>
+			<p class="home-section-text">{{ 'Унікальне поєднання кухні, атмосфери та розташування.' | translate }}</p>
+		</div>
+		<div class="home-features-grid">
+			<article class="home-feature-card">
+				<span class="material-symbols-outlined home-feature-icon" aria-hidden="true">restaurant</span>
+				<h3 class="home-feature-title">{{ 'Авторська кухня' | translate }}</h3>
+				<p class="home-feature-text">{{ 'Українська та європейська кухня з локальними інгредієнтами. Гриль, пасти, борщ, десерти власного виробництва.' | translate }}</p>
+			</article>
+			<article class="home-feature-card">
+				<span class="material-symbols-outlined home-feature-icon" aria-hidden="true">deck</span>
+				<h3 class="home-feature-title">{{ 'Літня тераса' | translate }}</h3>
+				<p class="home-feature-text">{{ 'Панорамний вид на каньйон річки Смотрич та фортецю. Одна з найкращих оглядових точок Кам\'янця.' | translate }}</p>
+			</article>
+			<article class="home-feature-card">
+				<span class="material-symbols-outlined home-feature-icon" aria-hidden="true">music_note</span>
+				<h3 class="home-feature-title">{{ 'Жива музика' | translate }}</h3>
+				<p class="home-feature-text">{{ 'П\'ятниця, субота, неділя — живі виступи музикантів, що доповнюють атмосферу вечора.' | translate }}</p>
+			</article>
+			<article class="home-feature-card">
+				<span class="material-symbols-outlined home-feature-icon" aria-hidden="true">celebration</span>
+				<h3 class="home-feature-title">{{ 'Банкетна зала' | translate }}</h3>
+				<p class="home-feature-text">{{ 'Зала до 120 гостей. Весілля, корпоративи, дні народження, дегустації — організація під ключ.' | translate }}</p>
+			</article>
+		</div>
+	</section>
+
+	<section class="home-about">
+		<div class="home-shell home-about-inner">
+			<div class="home-about-text">
+				<p class="home-kicker-light">{{ 'Про заклад' | translate }}</p>
+				<h2 class="home-about-title">{{ 'Історична будівля над каньйоном' | translate }}</h2>
+				<p class="home-about-desc">
+					{{ 'Ресторан «Стара фортеця» розташований у старовинній будівлі поруч із Гончарною вежею, на краю скелі над ущелиною Смотрича. Заклад поєднує дух середньовічного міста з сучасним рівнем кухні та сервісу.' | translate }}
+				</p>
+				<p class="home-about-desc">
+					{{ 'Щодня з 10:00 до 22:00 ми приймаємо гостей у затишному залі та на відкритій терасі. За будь-якою додатковою інформацією звертайтеся до нас за телефоном.' | translate }}
+				</p>
+				<div class="home-about-actions">
+					<a class="home-cta-outline" routerLink="/events">{{ 'Організувати подію' | translate }}</a>
+					<a class="home-cta-outline" routerLink="/contacts">{{ 'Контакти' | translate }}</a>
+				</div>
+			</div>
+			<div class="home-about-stats">
+				<div class="home-stat">
+					<span class="home-stat-value">120</span>
+					<span class="home-stat-label">{{ 'місць у банкетній залі' | translate }}</span>
+				</div>
+				<div class="home-stat">
+					<span class="home-stat-value">10+</span>
+					<span class="home-stat-label">{{ 'років у серці міста' | translate }}</span>
+				</div>
+				<div class="home-stat">
+					<span class="home-stat-value">4.5★</span>
+					<span class="home-stat-label">{{ 'рейтинг на TripAdvisor' | translate }}</span>
+				</div>
+				<div class="home-stat">
+					<span class="home-stat-value">Пт–Нд</span>
+					<span class="home-stat-label">{{ 'жива музика щовечора' | translate }}</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="home-shell home-nav-cards">
+		<a class="home-nav-card" routerLink="/menu">
+			<span class="material-symbols-outlined" aria-hidden="true">menu_book</span>
+			<div>
+				<p class="home-nav-card-title">{{ 'Меню' | translate }}</p>
+				<p class="home-nav-card-text">{{ 'Авторські страви та класика' | translate }}</p>
+			</div>
+			<span class="material-symbols-outlined home-nav-card-arrow" aria-hidden="true">arrow_forward</span>
+		</a>
+		<a class="home-nav-card" routerLink="/events">
+			<span class="material-symbols-outlined" aria-hidden="true">event</span>
+			<div>
+				<p class="home-nav-card-title">{{ 'Події' | translate }}</p>
+				<p class="home-nav-card-text">{{ 'Весілля, банкети, корпоративи' | translate }}</p>
+			</div>
+			<span class="material-symbols-outlined home-nav-card-arrow" aria-hidden="true">arrow_forward</span>
+		</a>
+		<a class="home-nav-card" routerLink="/reviews">
+			<span class="material-symbols-outlined" aria-hidden="true">star</span>
+			<div>
+				<p class="home-nav-card-title">{{ 'Відгуки' | translate }}</p>
+				<p class="home-nav-card-text">{{ '4.5 / 5 на TripAdvisor' | translate }}</p>
+			</div>
+			<span class="material-symbols-outlined home-nav-card-arrow" aria-hidden="true">arrow_forward</span>
+		</a>
+		<a class="home-nav-card" routerLink="/contacts">
+			<span class="material-symbols-outlined" aria-hidden="true">location_on</span>
+			<div>
+				<p class="home-nav-card-title">{{ 'Контакти' | translate }}</p>
+				<p class="home-nav-card-text">{{ 'вул. Вали, 1 · +38 (067) 493 9000' | translate }}</p>
+			</div>
+			<span class="material-symbols-outlined home-nav-card-arrow" aria-hidden="true">arrow_forward</span>
+		</a>
+	</section>
+
+</div>

@@ -2,24 +2,21 @@
 	<header class="events-hero">
 		<div class="events-shell">
 			<div class="events-hero-content">
-				<p class="events-kicker">Події та святкування</p>
-				<h1 class="events-title">Івенти у «Старій фортеці»</h1>
-				<p class="events-subtitle">
-					Ми організовуємо події, що запам&apos;ятовуються: від камерних дегустацій
-					до масштабних свят з преміальною подачею.
-				</p>
+				<p class="events-kicker">{{ 'Події та святкування' | translate }}</p>
+				<h1 class="events-title">{{ "Івенти у «Старій фортеці»" | translate }}</h1>
+				<p class="events-subtitle">{{ "Ми організовуємо події, що запам'ятовуються: від камерних дегустацій до масштабних свят з преміальною подачею." | translate }}</p>
 				<div class="events-hero-actions">
-					<a class="events-cta" href="tel:+380674939000">Забронювати дату</a>
+					<a class="events-cta" href="tel:+380674939000">{{ 'Забронювати дату' | translate }}</a>
 					<span class="events-cta-note">+38 (067) 493 9000</span>
 				</div>
 			</div>
 			<div class="events-hero-card">
-				<p class="events-hero-card-title">Що ми беремо на себе</p>
+				<p class="events-hero-card-title">{{ 'Що ми беремо на себе' | translate }}</p>
 				<ul class="events-hero-list">
-					<li>Сценарій події та таймінг</li>
-					<li>Меню під ваш формат</li>
-					<li>Декор, світло, музика</li>
-					<li>Координація гостей</li>
+					<li>{{ 'Сценарій події та таймінг' | translate }}</li>
+					<li>{{ 'Меню під ваш формат' | translate }}</li>
+					<li>{{ 'Декор, світло, музика' | translate }}</li>
+					<li>{{ 'Координація гостей' | translate }}</li>
 				</ul>
 			</div>
 		</div>
@@ -27,18 +24,18 @@
 
 	<section class="events-shell events-section">
 		<div class="events-section-head">
-			<h2 class="events-section-title">Формати подій</h2>
-			<p class="events-section-text">Обирайте формат, а ми підберемо сценарій.</p>
+			<h2 class="events-section-title">{{ 'Формати подій' | translate }}</h2>
+			<p class="events-section-text">{{ 'Обирайте формат, а ми підберемо сценарій.' | translate }}</p>
 		</div>
 		<div class="events-grid">
 			@for (event of eventTypes(); track event.id) {
 				<article class="events-card">
 					<span class="material-symbols-outlined" aria-hidden="true">{{ event.icon }}</span>
-					<h3>{{ event.title }}</h3>
-					<p>{{ event.description }}</p>
+					<h3>{{ event.title | translate }}</h3>
+					<p>{{ event.description | translate }}</p>
 					<div class="events-card-meta">
-						<span>{{ event.capacity }}</span>
-						<span>{{ event.duration }}</span>
+						<span>{{ event.capacity | translate }}</span>
+						<span>{{ event.duration | translate }}</span>
 					</div>
 				</article>
 			}
@@ -47,29 +44,27 @@
 
 	<section class="events-shell events-section">
 		<div class="events-section-head">
-			<h2 class="events-section-title">Свята та дати</h2>
-			<p class="events-section-text">Святкуємо у будь-який сезон та формат.</p>
+			<h2 class="events-section-title">{{ 'Свята та дати' | translate }}</h2>
+			<p class="events-section-text">{{ 'Святкуємо у будь-який сезон та формат.' | translate }}</p>
 		</div>
 		<div class="events-tags">
 			@for (holiday of holidays(); track holiday) {
-				<span class="events-tag">{{ holiday }}</span>
+				<span class="events-tag">{{ holiday | translate }}</span>
 			}
 		</div>
 	</section>
 
 	<section class="events-shell events-section">
 		<div class="events-section-head">
-			<h2 class="events-section-title">Ідеї, які додають вау-ефект</h2>
-			<p class="events-section-text">
-				Пропонуємо додаткові формати, щоб подія стала особливою.
-			</p>
+			<h2 class="events-section-title">{{ 'Ідеї, які додають вау-ефект' | translate }}</h2>
+			<p class="events-section-text">{{ 'Пропонуємо додаткові формати, щоб подія стала особливою.' | translate }}</p>
 		</div>
 		<div class="events-grid events-grid--ideas">
 			@for (idea of ideas(); track idea.id) {
 				<article class="events-card events-card--idea">
 					<span class="material-symbols-outlined" aria-hidden="true">{{ idea.icon }}</span>
-					<h3>{{ idea.title }}</h3>
-					<p>{{ idea.description }}</p>
+					<h3>{{ idea.title | translate }}</h3>
+					<p>{{ idea.description | translate }}</p>
 				</article>
 			}
 		</div>
@@ -77,14 +72,12 @@
 
 	<section class="events-shell events-section events-contact">
 		<div>
-			<h2 class="events-section-title">Зв&apos;яжіться з нами</h2>
-			<p class="events-section-text">
-				Напишіть або зателефонуйте, щоб узгодити дату, кількість гостей та меню.
-			</p>
+			<h2 class="events-section-title">{{ "Зв'яжіться з нами" | translate }}</h2>
+			<p class="events-section-text">{{ 'Напишіть або зателефонуйте, щоб узгодити дату, кількість гостей та меню.' | translate }}</p>
 		</div>
 		<div class="events-contact-actions">
 			<a class="events-cta" href="tel:+380674939000">+38 (067) 493 9000</a>
-			<span class="events-cta-note">вул. Вали, 1, Кам&apos;янець-Подільський</span>
+			<span class="events-cta-note">{{ "вул. Вали, 1, Кам'янець-Подільський" | translate }}</span>
 		</div>
 	</section>
 </section>

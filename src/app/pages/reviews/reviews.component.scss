@@ -1,0 +1,273 @@
+:host {
+	display: block;
+}
+
+$hero-bg: linear-gradient(160deg, #2d1f0e 0%, #1a1008 100%);
+$gold: #d4af6b;
+$gold-hover: #e0c07a;
+$cream: #f5ead6;
+$cream-muted: rgba(245, 234, 214, 0.75);
+
+.reviews-page {
+	background: radial-gradient(ellipse at 60% 0%, #fff8f0 0%, #f5ede6 60%);
+
+	html[data-mode='dark'] & {
+		background: radial-gradient(ellipse at 60% 0%, #2a2318 0%, #282828 60%);
+	}
+}
+
+.reviews-shell {
+	max-width: var(--container);
+	margin-inline: auto;
+	padding-inline: var(--sp-4);
+
+	@media (min-width: 640px) {
+		padding-inline: var(--sp-6);
+	}
+}
+
+/* ── Hero ── */
+.reviews-hero {
+	background: $hero-bg;
+	padding: var(--sp-16) 0 var(--sp-12);
+	position: relative;
+	overflow: hidden;
+
+	&::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background-image: repeating-linear-gradient(135deg, rgba(212,175,107,.03) 0, rgba(212,175,107,.03) 1px, transparent 1px, transparent 8px);
+		pointer-events: none;
+	}
+}
+
+.reviews-hero .reviews-shell {
+	position: relative;
+	z-index: 1;
+}
+
+.reviews-kicker {
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: 0.15em;
+	text-transform: uppercase;
+	color: $gold;
+	margin-bottom: var(--sp-3);
+}
+
+.reviews-title {
+	font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+	font-size: clamp(1.8rem, 4vw, 2.8rem);
+	font-weight: 700;
+	color: $cream;
+	margin-bottom: var(--sp-7);
+}
+
+.reviews-summary {
+	display: flex;
+	align-items: center;
+	gap: var(--sp-6);
+	flex-wrap: wrap;
+}
+
+.reviews-score {
+	display: flex;
+	align-items: center;
+	gap: var(--sp-3);
+}
+
+.reviews-score-value {
+	font-family: 'Playfair Display', Georgia, serif;
+	font-size: 3.5rem;
+	font-weight: 700;
+	color: $gold;
+	line-height: 1;
+}
+
+.reviews-score-detail {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.reviews-stars {
+	font-size: 20px;
+	color: $gold;
+	letter-spacing: 2px;
+}
+
+.reviews-score-label {
+	font-size: 13px;
+	color: $cream-muted;
+}
+
+.reviews-divider {
+	width: 1px;
+	height: 48px;
+	background: rgba(212, 175, 107, 0.25);
+
+	@media (max-width: 480px) { display: none; }
+}
+
+.reviews-summary-text {
+	font-size: 15px;
+	line-height: 1.65;
+	color: $cream-muted;
+	max-width: 360px;
+}
+
+/* ── Grid ── */
+.reviews-grid-section {
+	padding: var(--sp-12) var(--sp-4);
+
+	@media (min-width: 640px) {
+		padding-inline: var(--sp-6);
+	}
+}
+
+.reviews-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	gap: var(--sp-5);
+}
+
+.reviews-card {
+	background: var(--c-bg-secondary);
+	border: 1px solid var(--c-border);
+	border-radius: var(--radius-card);
+	padding: var(--sp-6);
+	box-shadow: var(--shadow-sm);
+	display: flex;
+	flex-direction: column;
+	gap: var(--sp-4);
+	transition: box-shadow var(--motion), transform var(--motion);
+
+	&:hover {
+		box-shadow: var(--shadow-md);
+		transform: translateY(-2px);
+	}
+}
+
+.reviews-card-head {
+	display: flex;
+	align-items: center;
+	gap: var(--sp-3);
+}
+
+.reviews-avatar {
+	width: 40px;
+	height: 40px;
+	border-radius: 999px;
+	background: linear-gradient(135deg, #4a2c00, #8b4513);
+	color: $gold;
+	font-size: 16px;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+}
+
+.reviews-name {
+	font-size: 14px;
+	font-weight: 600;
+	color: var(--c-text-secondary);
+}
+
+.reviews-date {
+	font-size: 12px;
+	color: var(--c-text-muted);
+}
+
+.reviews-source {
+	margin-left: auto;
+	font-size: 11px;
+	font-weight: 500;
+	color: var(--c-text-muted);
+	border: 1px solid var(--c-border);
+	border-radius: 4px;
+	padding: 2px 7px;
+}
+
+.reviews-rating {
+	display: flex;
+	gap: 2px;
+}
+
+.reviews-star {
+	font-size: 17px;
+	color: var(--c-border);
+}
+
+.reviews-star--filled {
+	color: $gold;
+}
+
+.reviews-text {
+	font-size: 14px;
+	line-height: 1.7;
+	color: var(--c-text-primary);
+}
+
+/* ── CTA ── */
+.reviews-cta-section {
+	background: $hero-bg;
+	padding: var(--sp-16) 0;
+}
+
+.reviews-cta-inner {
+	text-align: center;
+}
+
+.reviews-cta-title {
+	font-family: 'Playfair Display', Georgia, serif;
+	font-size: clamp(1.4rem, 3vw, 2rem);
+	font-weight: 700;
+	color: $cream;
+	margin-bottom: var(--sp-4);
+}
+
+.reviews-cta-text {
+	font-size: 15px;
+	color: $cream-muted;
+	max-width: 480px;
+	margin: 0 auto var(--sp-7);
+	line-height: 1.65;
+}
+
+.reviews-cta-actions {
+	display: flex;
+	justify-content: center;
+	gap: var(--sp-4);
+	flex-wrap: wrap;
+}
+
+.reviews-cta-btn {
+	display: inline-flex;
+	align-items: center;
+	padding: 12px var(--sp-6);
+	background: $gold;
+	color: #1a1008;
+	font-size: 14px;
+	font-weight: 600;
+	border-radius: var(--radius-btn);
+	text-decoration: none;
+	transition: background var(--motion-fast), transform var(--motion-fast);
+
+	&:hover {
+		background: $gold-hover;
+		transform: translateY(-1px);
+	}
+
+	&--outline {
+		background: transparent;
+		border: 1px solid rgba(212, 175, 107, 0.4);
+		color: $gold;
+
+		&:hover {
+			background: rgba(212, 175, 107, 0.1);
+			border-color: $gold;
+		}
+	}
+}

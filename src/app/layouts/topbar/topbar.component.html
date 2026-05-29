@@ -1,17 +1,10 @@
-<header
-	class="border-b border-[var(--c-border)] bg-[var(--c-bg-secondary)]/95 backdrop-blur supports-[backdrop-filter]:bg-[var(--c-bg-secondary)]/80"
->
-	<div
-		class="mx-auto flex min-h-16 w-full max-w-[var(--container)] items-center justify-between px-4 py-3 sm:px-6"
-	>
-		<a
-			[aria-label]="'Go to homepage' | translate"
-			class="inline-flex items-center"
-			routerLink="/"
-		>
+<header class="topbar">
+	<div class="topbar-shell">
+
+		<a class="topbar-logo" routerLink="/" aria-label="Стара фортеця — на головну">
 			<img
-				class="h-10 w-auto"
-				alt="Project logo"
+				class="topbar-logo-img"
+				alt="Стара фортеця"
 				ngSrc="assets/logo.png"
 				width="132"
 				height="40"
@@ -19,89 +12,54 @@
 			/>
 		</a>
 
-		<nav class="hidden items-center gap-1 md:flex">
-			<a
-				class="rounded-lg px-4 py-2 text-sm font-medium text-[var(--c-text-primary)] transition-colors duration-200 hover:bg-[var(--c-bg-primary)] hover:text-[var(--c-text-secondary)]"
-				routerLink="/"
-				routerLinkActive="bg-[var(--c-bg-primary)] text-[var(--c-text-secondary)]"
-				[routerLinkActiveOptions]="{ exact: true }"
-			>
+		<nav class="topbar-nav">
+			<a class="topbar-link" routerLink="/" routerLinkActive="topbar-link--active" [routerLinkActiveOptions]="{ exact: true }">
+				{{ 'Головна' | translate }}
+			</a>
+			<a class="topbar-link" routerLink="/menu" routerLinkActive="topbar-link--active">
 				{{ 'Меню' | translate }}
 			</a>
-			<a
-				class="rounded-lg px-4 py-2 text-sm font-medium text-[var(--c-text-primary)] transition-colors duration-200 hover:bg-[var(--c-bg-primary)] hover:text-[var(--c-text-secondary)]"
-				routerLink="/events"
-				routerLinkActive="bg-[var(--c-bg-primary)] text-[var(--c-text-secondary)]"
-			>
-				{{ 'Івенти' | translate }}
+			<a class="topbar-link" routerLink="/events" routerLinkActive="topbar-link--active">
+				{{ 'Події' | translate }}
+			</a>
+			<a class="topbar-link" routerLink="/reviews" routerLinkActive="topbar-link--active">
+				{{ 'Відгуки' | translate }}
+			</a>
+			<a class="topbar-link" routerLink="/contacts" routerLinkActive="topbar-link--active">
+				{{ 'Контакти' | translate }}
 			</a>
 		</nav>
 
-		<div class="flex items-center gap-2">
-			<div
-				class="relative flex items-center gap-1 rounded-full border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-1 shadow-[var(--shadow-sm)]"
-			>
-				<button
-					class="inline-flex h-9 items-center gap-2 rounded-full px-3 text-sm font-medium text-[var(--c-text-primary)] transition-colors duration-200 hover:bg-[var(--c-bg-tertiary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--c-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--c-bg-secondary)]"
-					[attr.aria-label]="languageCycleLabel()"
-					(click)="nextLanguage()"
-					type="button"
-				>
-					<img
-						class="h-5 w-7 rounded-[4px] border border-black/10 object-cover"
-						[alt]="currentLanguage().label"
-						[ngSrc]="currentLanguage().flagSrc"
-						width="28"
-						height="20"
-					/>
-				</button>
-
-				<button
-					class="inline-flex h-9 w-9 items-center justify-center rounded-full text-[var(--c-text-secondary)] transition-colors duration-200 hover:bg-[var(--c-bg-tertiary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--c-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--c-bg-secondary)]"
-					[attr.aria-expanded]="languageMenuOpen()"
-					[attr.aria-label]="languageMenuLabel()"
-					(click)="toggleLanguageMenu()"
-					type="button"
-				>
-					<span class="material-symbols-outlined text-[20px]" aria-hidden="true">
-						arrow_drop_down
-					</span>
-				</button>
-
-				@if (languageMenuOpen()) {
-					<div
-						class="absolute right-0 top-[calc(100%+0.5rem)] z-10 min-w-48 overflow-hidden rounded-2xl border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-1 shadow-[var(--shadow-md)]"
+		<div class="topbar-controls">
+			<div class="topbar-lang">
+				@for (lang of languages(); track lang.code) {
+					<button
+						class="topbar-lang-btn"
+						[class.topbar-lang-btn--active]="currentLanguage().code === lang.code"
+						(click)="setLanguage(lang)"
+						type="button"
 					>
-						@for (language of languages(); track language.code) {
-							<button
-								class="flex w-full items-center gap-3 rounded-[calc(var(--radius-btn)-0.25rem)] px-3 py-2 text-left text-sm text-[var(--c-text-primary)] transition-colors duration-200 hover:bg-[var(--c-bg-tertiary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--c-primary)]"
-								(click)="setLanguage(language)"
-								type="button"
-							>
-								<img
-									class="h-5 w-7 rounded-[4px] border border-black/10 object-cover"
-									[alt]="language.label"
-									[ngSrc]="language.flagSrc"
-									width="28"
-									height="20"
-								/>
-								<span>{{ language.label }}</span>
-							</button>
-						}
-					</div>
+						{{ lang.code === 'ua' ? 'UA' : 'EN' }}
+					</button>
+					@if (!$last) {
+						<span class="topbar-lang-sep" aria-hidden="true">|</span>
+					}
 				}
 			</div>
 
 			<button
-				class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--c-border)] bg-[var(--c-bg-primary)] text-[var(--c-text-secondary)] transition-colors duration-200 hover:bg-[var(--c-bg-tertiary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--c-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--c-bg-secondary)]"
+				class="topbar-theme-btn"
 				[attr.aria-label]="toggleLabel()"
 				(click)="toggleMode()"
 				type="button"
 			>
-				<span class="material-symbols-outlined text-[22px]" aria-hidden="true">
-					{{ toggleIcon() }}
-				</span>
+				<span
+					class="topbar-theme-icon"
+					[class.topbar-theme-icon--light]="mode() === 'dark'"
+					aria-hidden="true"
+				></span>
 			</button>
 		</div>
+
 	</div>
 </header>

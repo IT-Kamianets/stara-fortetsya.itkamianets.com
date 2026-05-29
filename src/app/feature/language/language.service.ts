@@ -14,6 +14,7 @@ export class LanguageService {
 	private readonly _translateService = inject(TranslateService);
 	private readonly _isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
 	private readonly _storageKey = 'app-language';
+	private _initialized = false;
 
 	readonly languages = signal<LanguageOption[]>(LANGUAGES);
 	private readonly _defaultLanguage = this.resolveDefaultLanguage();
@@ -21,6 +22,12 @@ export class LanguageService {
 	readonly language = signal<LanguageCode>(this._defaultLanguage);
 
 	init() {
+		if (this._initialized) {
+			return;
+		}
+
+		this._initialized = true;
+
 		const stored = this._isBrowser
 			? this._doc.defaultView?.localStorage.getItem(this._storageKey)
 			: null;
@@ -47,19 +54,25 @@ export class LanguageService {
 		this.setLanguage(languages[nextIndex]?.code ?? this._defaultLanguage);
 	}
 
+	translateText(text: string): string {
+		const language = this.language();
+
+		if (language === 'ua') {
+			return text;
+		}
+
+		return translates[text]?.[language] ?? text;
+	}
+
 	getLanguage(code: LanguageCode): LanguageOption {
 		return this.languages().find((language) => language.code === code) ?? this.languages()[0]!;
 	}
 
 	private buildTranslations(language: LanguageCode): Translate[] {
-		if (language === 'ua') {
-			return [];
-		}
-
-		return Object.entries(translates).flatMap(([sourceText, translationMap]) => {
-			const text = translationMap[language];
-			return text ? [{ sourceText, text }] : [];
-		});
+		return Object.entries(translates).map(([sourceText, translationMap]) => ({
+			sourceText,
+			text: language === 'ua' ? sourceText : (translationMap[language] ?? sourceText),
+		}));
 	}
 
 	private isSupportedLanguage(value: string | null | undefined): value is LanguageCode {

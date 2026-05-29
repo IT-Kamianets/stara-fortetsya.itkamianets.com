@@ -7,12 +7,15 @@ export const translates: Record<string, Record<string, string>> = {
 	'Головна':  { en: 'Home' },
 	'Меню':     { en: 'Menu' },
 	'Події':    { en: 'Events' },
+	'Галерея':  { en: 'Gallery' },
 	'Відгуки':  { en: 'Reviews' },
 	'Контакти': { en: 'Contacts' },
 
 	// ── Footer ───────────────────────────────────────────────────────────────
 	'Ресторан':                             { en: 'Restaurant' },
 	'Стара фортеця':                        { en: 'Stara Fortetsya' },
+	'Стара фортеця — на головну':           { en: 'Stara Fortetsya — home' },
+	'Стара фортеця на карті':               { en: 'Stara Fortetsya on the map' },
 	'Навігація':                            { en: 'Navigation' },
 	"вул. Вали, 1, Кам'янець-Подільський": { en: "Valy St, 1, Kamianets-Podilskyi" },
 	'Всі права захищені':                   { en: 'All rights reserved' },
@@ -74,6 +77,37 @@ export const translates: Record<string, Record<string, string>> = {
 		en: 'Visited us? Your review helps other guests and motivates our team.',
 	},
 	'Написати на TripAdvisor': { en: 'Write on TripAdvisor' },
+	'зірок з 5': { en: 'stars out of 5' },
+	'Оксана М.': { en: 'Oksana M.' },
+	'Андрій К.': { en: 'Andrii K.' },
+	'Марія Р.': { en: 'Mariia R.' },
+	'Василь Т.': { en: 'Vasyl T.' },
+	'Наталія С.': { en: 'Nataliia S.' },
+	'Ігор П.': { en: 'Ihor P.' },
+	'Березень 2024': { en: 'March 2024' },
+	'Лютий 2024': { en: 'February 2024' },
+	'Січень 2024': { en: 'January 2024' },
+	'Грудень 2023': { en: 'December 2023' },
+	'Листопад 2023': { en: 'November 2023' },
+	'Жовтень 2023': { en: 'October 2023' },
+	"Неймовірне місце! Шашлик з ребер у медово-гірчичному соусі — найкращий, що я куштувала. Літня тераса з видом на каньйон Смотрича — це щось неймовірне. Обов'язково повернемось!": {
+		en: 'An incredible place! The ribs in honey-mustard sauce were the best I have tried. The summer terrace overlooking the Smotrych canyon is wonderful. We will definitely come back!',
+	},
+	'Організовували весілля на 80 гостей. Персонал — просто супер: все злагоджено, смачно, вчасно. Банкетна зала дуже гарна, жива музика створила чудову атмосферу.': {
+		en: 'We organised a wedding for 80 guests. The staff were excellent: everything was coordinated, delicious, and on time. The banquet hall is beautiful, and the live music created a wonderful atmosphere.',
+	},
+	'Атмосфера — як у старовинному замку. Розташування над каньйоном просто захоплює дух. Борщ і курячий шашлик з моцарелою — топ. Обслуговування швидке та уважне.': {
+		en: 'The atmosphere feels like an old castle. The location above the canyon is breathtaking. The borscht and chicken skewers with mozzarella were excellent. Service was quick and attentive.',
+	},
+	"Чудовий ресторан у самому серці Кам'янця. Меню різноманітне — і українська, і європейська кухня. Паста Карбонара справжня. Хочеться повернутись влітку на терасу.": {
+		en: 'A wonderful restaurant in the very heart of Kamianets. The menu is varied, with both Ukrainian and European cuisine. The carbonara is the real thing. I would love to return to the terrace in summer.',
+	},
+	'Святкували день народження. Персонал заздалегідь прикрасив стіл, принесли комплімент від ресторану. Шоколадний фондан — просто шедевр! Точно найкраще місце у місті.': {
+		en: 'We celebrated a birthday. The staff decorated the table in advance and brought a compliment from the restaurant. The chocolate fondant was a masterpiece! Definitely the best place in the city.',
+	},
+	"Були в п'ятницю ввечері — жива музика додала неймовірної атмосфери. Їжа смачна, порції великі. Парковка зручна. Заклад тримає свою репутацію вже багато років.": {
+		en: 'We visited on Friday evening, and the live music added a wonderful atmosphere. The food was tasty, portions were generous, and parking was convenient. The place has kept its reputation for many years.',
+	},
 
 	// ── Contacts page ─────────────────────────────────────────────────────────
 	"Зв'яжіться з нами": { en: 'Get in touch' },
@@ -146,7 +180,9 @@ export const translates: Record<string, Record<string, string>> = {
 	'Грецький салат':                                { en: 'Greek salad' },
 	'Свіжі овочі, фета, оливки та зелень.':          { en: 'Fresh vegetables, feta, olives, and herbs.' },
 	"М'ясна нарізка з зеленню":                      { en: 'Charcuterie board with herbs' },
+	'М’ясна нарізка з зеленню':                      { en: 'Charcuterie board with herbs' },
 	"Добірні м'ясні делікатеси, подача на дереві.":  { en: 'Premium cold cuts, served on a wooden board.' },
+	'Добірні м’ясні делікатеси, подача на дереві.':  { en: 'Premium cold cuts, served on a wooden board.' },
 	'Ребра на грилі':                                { en: 'Grilled ribs' },
 	'Подача з домашнім соусом та гарніром.':         { en: 'Served with house sauce and a side dish.' },
 	'Куряче філе гриль':                             { en: 'Grilled chicken fillet' },
@@ -157,13 +193,42 @@ export const translates: Record<string, Record<string, string>> = {
 	'З сиром та зеленню у авторській подачі.':       { en: 'With cheese and herbs in a signature presentation.' },
 
 	'Сторінка меню з добіркою салатів.': { en: 'Menu page with a selection of salads.' },
+	'Страви на вугіллі': { en: 'Charcoal-grilled dishes' },
+	'Страви з грилю та фірмові подачі.': { en: 'Grilled dishes and signature presentations.' },
 	'Гриль':         { en: 'Grill' },
+	'Закуски та асорті.': { en: 'Starters and platters.' },
 	'Перша паста':   { en: 'Pasta' },
 	'Гарніри':       { en: 'Side dishes' },
 	'Перші страви':  { en: 'First courses' },
 	'Соуси':         { en: 'Sauces' },
 	'Десерти':       { en: 'Desserts' },
 	'Салати та гриль': { en: 'Salads & grill' },
+	'Солодкі завершення вечора.': { en: 'Sweet endings to the evening.' },
+	'Перші страви та пасти': { en: 'First courses and pasta' },
+	'Супи та пасти.': { en: 'Soups and pasta.' },
+	'Гарячі страви та гарніри': { en: 'Hot dishes and sides' },
+	'Основні страви та гарніри.': { en: 'Main courses and side dishes.' },
+	'Фірмові соуси до страв.': { en: 'Signature sauces for dishes.' },
+	'Окремі гарніри.': { en: 'Separate side dishes.' },
+	'Салати на вугіллі': { en: 'Charcoal-grilled salads' },
+	'Салати, приготовані на грилі.': { en: 'Grilled salads.' },
+	'Преміальна подача салату «Цезар».': { en: 'Premium Caesar salad presentation.' },
+	'Свіжа овочева композиція.': { en: 'A fresh vegetable composition.' },
+	'Гаряча страва з соусом.': { en: 'A hot dish with sauce.' },
+	'Подача з фрі та соусом.': { en: 'Served with fries and sauce.' },
+	'М’ясна нарізка': { en: 'Charcuterie board' },
+	'Асорті м’ясних делікатесів.': { en: 'An assortment of meat delicacies.' },
+	'Ніжні морепродукти.': { en: 'Delicate seafood.' },
+	'Домашня подача з зеленню.': { en: 'Homestyle presentation with herbs.' },
+
+	// ── Gallery page ──────────────────────────────────────────────────────────
+	'Атмосфера та простір': { en: 'Atmosphere & space' },
+	'Зали, страви, живі вечори — все, що робить «Стару фортецю» особливою.': {
+		en: 'Halls, dishes, live evenings — everything that makes Stara Fortetsya special.',
+	},
+	'Фото ресторану Стара фортеця': { en: 'Stara Fortetsya restaurant photo' },
+	'Фото ресторану': { en: 'Restaurant photo' },
+	'Закрити': { en: 'Close' },
 
 	// ── Events page — static ──────────────────────────────────────────────────
 	'Події та святкування':          { en: 'Events & Celebrations' },
@@ -238,6 +303,7 @@ export const translates: Record<string, Record<string, string>> = {
 	'Родинні свята та ювілеї':     { en: 'Family celebrations & anniversaries' },
 
 	"Chef's Table": { en: "Chef's Table" },
+	'Chef’s Table': { en: "Chef's Table" },
 	'Закритий стіл з авторською подачею, історією страв та персональним сервісом.': {
 		en: 'A private table with signature presentations, the story behind each dish, and personal service.',
 	},

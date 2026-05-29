@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { TranslatePipe } from 'wacom';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 
 const EVENT_TYPES = [
 	{

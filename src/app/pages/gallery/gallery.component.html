@@ -1,0 +1,45 @@
+<div class="gallery-page">
+
+	<header class="gallery-hero">
+		<div class="gallery-shell">
+			<p class="gallery-kicker">{{ 'Атмосфера та простір' | translate }}</p>
+			<h1 class="gallery-title">{{ 'Галерея' | translate }}</h1>
+			<p class="gallery-subtitle">
+				{{ 'Зали, страви, живі вечори — все, що робить «Стару фортецю» особливою.' | translate }}
+			</p>
+		</div>
+	</header>
+
+	<section class="gallery-shell gallery-body">
+		<div class="gallery-grid">
+			@for (photo of photos; track photo) {
+				<button class="gallery-item" type="button" (click)="open(photo)">
+					<img
+						class="gallery-img"
+						[src]="photo"
+						[alt]="'Фото ресторану Стара фортеця' | translate"
+						loading="lazy"
+					/>
+					<span class="gallery-overlay">
+						<span class="material-symbols-outlined">zoom_in</span>
+					</span>
+				</button>
+			}
+		</div>
+	</section>
+
+	@if (lightboxSrc()) {
+		<div class="gallery-lightbox" (click)="close()">
+			<button class="gallery-lightbox-close" type="button" (click)="close()" [attr.aria-label]="'Закрити' | translate">
+				<span class="material-symbols-outlined">close</span>
+			</button>
+			<img
+				class="gallery-lightbox-img"
+				[src]="lightboxSrc()!"
+				[alt]="'Фото ресторану' | translate"
+				(click)="$event.stopPropagation()"
+			/>
+		</div>
+	}
+
+</div>

@@ -22,6 +22,11 @@ export const routes: Routes = [
 			import('./pages/reviews/reviews.component').then((m) => m.ReviewsComponent),
 	},
 	{
+		path: 'gallery',
+		loadComponent: () =>
+			import('./pages/gallery/gallery.component').then((m) => m.GalleryComponent),
+	},
+	{
 		path: 'contacts',
 		loadComponent: () =>
 			import('./pages/contacts/contacts.component').then((m) => m.ContactsComponent),

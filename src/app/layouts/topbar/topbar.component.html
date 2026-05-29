@@ -1,10 +1,14 @@
 <header class="topbar">
 	<div class="topbar-shell">
 
-		<a class="topbar-logo" routerLink="/" aria-label="Стара фортеця — на головну">
+		<a
+			class="topbar-logo"
+			routerLink="/"
+			[attr.aria-label]="'Стара фортеця — на головну' | translate"
+		>
 			<img
 				class="topbar-logo-img"
-				alt="Стара фортеця"
+				[alt]="'Стара фортеця' | translate"
 				ngSrc="assets/logo.png"
 				width="132"
 				height="40"
@@ -21,6 +25,9 @@
 			</a>
 			<a class="topbar-link" routerLink="/events" routerLinkActive="topbar-link--active">
 				{{ 'Події' | translate }}
+			</a>
+			<a class="topbar-link" routerLink="/gallery" routerLinkActive="topbar-link--active">
+				{{ 'Галерея' | translate }}
 			</a>
 			<a class="topbar-link" routerLink="/reviews" routerLinkActive="topbar-link--active">
 				{{ 'Відгуки' | translate }}

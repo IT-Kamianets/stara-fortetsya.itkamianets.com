@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { TranslatePipe } from 'wacom';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 
 @Component({
 	selector: 'app-footer',

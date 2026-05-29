@@ -203,11 +203,15 @@ $cream-muted: rgba(245, 234, 214, 0.75);
 	font-weight: 700;
 	color: var(--c-text-secondary);
 	margin-bottom: var(--sp-3);
+
+	html[data-mode='dark'] & { color: $cream; }
 }
 
 .home-section-text {
 	font-size: 15px;
 	color: var(--c-text-muted);
+
+	html[data-mode='dark'] & { color: $cream-muted; }
 }
 
 .home-features-grid {

@@ -1,9 +1,10 @@
 import { NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { ThemeService, TranslatePipe, TranslateService } from 'wacom';
+import { ThemeService } from 'wacom';
 import { LanguageOption } from '../../feature/language/language.interface';
 import { LanguageService } from '../../feature/language/language.service';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 
 @Component({
 	selector: 'app-topbar',
@@ -13,7 +14,6 @@ import { LanguageService } from '../../feature/language/language.service';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TopbarComponent {
-	private readonly _translateService = inject(TranslateService);
 	private readonly _themeService = inject(ThemeService);
 	private readonly _languageService = inject(LanguageService);
 
@@ -27,13 +27,12 @@ export class TopbarComponent {
 	);
 	protected readonly toggleLabel = computed(() =>
 		this.mode() === 'dark'
-			? this._translateService.translate('Switch to light mode')()
-			: this._translateService.translate('Switch to dark mode')(),
+			? this._languageService.translateText('Switch to light mode')
+			: this._languageService.translateText('Switch to dark mode'),
 	);
 
 	constructor() {
 		this._themeService.init();
-		this._languageService.init();
 	}
 
 	protected toggleMode() {

@@ -53,18 +53,13 @@
 						{{ 'Адреса' | translate }}
 					</h2>
 					<div class="contacts-block-content">
-						<p class="contacts-address">{{ 'вул. Вали, 1' | translate }}</p>
-						<p class="contacts-address-city">{{ 'Кам\'янець-Подільський, 32301' | translate }}</p>
-						<p class="contacts-note">{{ 'Поруч з Гончарною вежею, над каньйоном Смотрича. Велике паркування.' | translate }}</p>
 						<a
-							class="contacts-map-link"
-							href="https://maps.app.goo.gl/Yrx3vQiVq237SGeV6"
+							class="contacts-address-link"
+							href="https://maps.app.goo.gl/qVJmLsYFhmNjbBCJ7"
 							target="_blank"
 							rel="noopener noreferrer"
-						>
-							<span class="material-symbols-outlined" aria-hidden="true">open_in_new</span>
-							{{ 'Відкрити в Google Maps' | translate }}
-						</a>
+						>{{ 'вул. Вали, 1, Кам\'янець-Подільський' | translate }}</a>
+						<p class="contacts-note">{{ 'Поруч з Гончарною вежею, над каньйоном Смотрича. Велике паркування.' | translate }}</p>
 					</div>
 				</div>
 
@@ -91,12 +86,22 @@
 			</div>
 
 			<div class="contacts-map-wrap">
+				<a
+					class="contacts-map-open"
+					href="https://maps.app.goo.gl/Yrx3vQiVq237SGeV6"
+					target="_blank"
+					rel="noopener noreferrer"
+					[attr.aria-label]="'Відкрити в Google Maps' | translate"
+				>
+					<span class="material-symbols-outlined" aria-hidden="true">open_in_new</span>
+					{{ 'Відкрити в Google Maps' | translate }}
+				</a>
 				<iframe
 					class="contacts-map"
 					src="https://maps.google.com/maps?q=48.6750211,26.5765015&z=16&output=embed"
 					loading="lazy"
 					referrerpolicy="no-referrer-when-downgrade"
-					title="Стара фортеця на карті"
+					[title]="'Стара фортеця на карті' | translate"
 					allowfullscreen
 				></iframe>
 			</div>

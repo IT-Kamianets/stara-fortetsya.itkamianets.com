@@ -91,11 +91,15 @@ $cream-muted: rgba(245, 234, 214, 0.75);
 	align-items: center;
 	justify-content: center;
 	padding: 12px 24px;
+	border: none;
 	border-radius: var(--radius-btn);
 	text-decoration: none;
-	color: var(--c-accent-contrast);
+	font-family: inherit;
+	font-size: 15px;
+	color: #1a1008;
 	font-weight: 600;
 	background: $gold;
+	cursor: pointer;
 	transition: background var(--motion-fast), transform var(--motion-fast);
 
 	&:hover {
@@ -203,10 +207,6 @@ $cream-muted: rgba(245, 234, 214, 0.75);
 	.material-symbols-outlined {
 		font-size: 26px;
 		color: var(--c-accent);
-
-		html[data-mode='dark'] & {
-			color: $gold;
-		}
 	}
 }
 
@@ -280,7 +280,8 @@ $cream-muted: rgba(245, 234, 214, 0.75);
 	gap: var(--sp-2);
 	padding: 12px var(--sp-6);
 	background: $gold;
-	color: var(--c-accent-contrast);
+	color: #1a1008;
+	font-family: inherit;
 	font-size: 15px;
 	font-weight: 600;
 	border-radius: var(--radius-btn);

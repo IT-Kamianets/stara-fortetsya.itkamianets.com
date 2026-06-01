@@ -1,0 +1,22 @@
+<nav class="bnav">
+	<a class="bnav-item" routerLink="/" routerLinkActive="bnav-item--active" [routerLinkActiveOptions]="{ exact: true }">
+		<span class="material-symbols-outlined bnav-icon" aria-hidden="true">home</span>
+		<span class="bnav-label">{{ 'Головна' | translate }}</span>
+	</a>
+	<a class="bnav-item" routerLink="/menu" routerLinkActive="bnav-item--active">
+		<span class="material-symbols-outlined bnav-icon" aria-hidden="true">restaurant_menu</span>
+		<span class="bnav-label">{{ 'Меню' | translate }}</span>
+	</a>
+	<a class="bnav-item" routerLink="/events" routerLinkActive="bnav-item--active">
+		<span class="material-symbols-outlined bnav-icon" aria-hidden="true">celebration</span>
+		<span class="bnav-label">{{ 'Події' | translate }}</span>
+	</a>
+	<a class="bnav-item" routerLink="/gallery" routerLinkActive="bnav-item--active">
+		<span class="material-symbols-outlined bnav-icon" aria-hidden="true">photo_library</span>
+		<span class="bnav-label">{{ 'Галерея' | translate }}</span>
+	</a>
+	<a class="bnav-item" routerLink="/contacts" routerLinkActive="bnav-item--active">
+		<span class="material-symbols-outlined bnav-icon" aria-hidden="true">call</span>
+		<span class="bnav-label">{{ 'Контакти' | translate }}</span>
+	</a>
+</nav>

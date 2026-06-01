@@ -23,11 +23,6 @@ $cream-muted: rgba(245, 234, 214, 0.75);
 	width: 100%;
 	max-width: 440px;
 	box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
-
-	html[data-mode='dark'] & {
-		background: #2a2318;
-		border: 1px solid rgba(212, 175, 107, 0.15);
-	}
 }
 
 .cm-close {
@@ -61,8 +56,6 @@ $cream-muted: rgba(245, 234, 214, 0.75);
 	font-weight: 700;
 	color: var(--c-text-secondary);
 	margin: 0 0 6px;
-
-	html[data-mode='dark'] & { color: $cream; }
 }
 
 .cm-subtitle {
@@ -87,8 +80,6 @@ $cream-muted: rgba(245, 234, 214, 0.75);
 	font-size: 13px;
 	font-weight: 600;
 	color: var(--c-text-secondary);
-
-	html[data-mode='dark'] & { color: $cream-muted; }
 }
 
 .cm-input {
@@ -105,13 +96,6 @@ $cream-muted: rgba(245, 234, 214, 0.75);
 	&:focus {
 		outline: none;
 		border-color: var(--c-accent);
-		html[data-mode='dark'] & { border-color: $gold; }
-	}
-
-	html[data-mode='dark'] & {
-		background: rgba(255, 255, 255, 0.05);
-		color: $cream;
-		border-color: rgba(212, 175, 107, 0.2);
 	}
 }
 
@@ -133,12 +117,6 @@ $cream-muted: rgba(245, 234, 214, 0.75);
 	}
 
 	&:disabled { opacity: 0.5; cursor: not-allowed; }
-
-	html[data-mode='dark'] & {
-		background: $gold;
-		color: var(--c-accent-contrast);
-		&:hover:not(:disabled) { background: $gold-hover; }
-	}
 }
 
 .cm-error {
@@ -167,8 +145,6 @@ $cream-muted: rgba(245, 234, 214, 0.75);
 	font-weight: 700;
 	color: var(--c-text-secondary);
 	margin: 0;
-
-	html[data-mode='dark'] & { color: $cream; }
 }
 
 .cm-success-text {

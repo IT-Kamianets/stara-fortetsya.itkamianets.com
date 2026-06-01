@@ -120,8 +120,6 @@ $cream-muted: rgba(245, 234, 214, 0.75);
 	.material-symbols-outlined {
 		font-size: 17px;
 		color: var(--c-accent);
-
-		html[data-mode='dark'] & { color: $gold; }
 	}
 }
 
@@ -140,8 +138,6 @@ $cream-muted: rgba(245, 234, 214, 0.75);
 
 	&:hover {
 		color: var(--c-accent);
-
-		html[data-mode='dark'] & { color: $gold; }
 	}
 }
 
@@ -188,8 +184,6 @@ $cream-muted: rgba(245, 234, 214, 0.75);
 
 	&:hover {
 		color: var(--c-accent);
-
-		html[data-mode='dark'] & { color: $gold; }
 	}
 }
 
@@ -206,7 +200,6 @@ $cream-muted: rgba(245, 234, 214, 0.75);
 
 	&:hover {
 		color: var(--c-accent);
-		html[data-mode='dark'] & { color: $gold; }
 	}
 }
 
@@ -234,8 +227,8 @@ $cream-muted: rgba(245, 234, 214, 0.75);
 	align-items: center;
 	gap: var(--sp-1);
 	padding: 7px 12px;
-	background: #fff;
-	color: var(--c-accent-contrast);
+	background: #fdf8f2;
+	color: #1a1008;
 	font-size: 13px;
 	font-weight: 600;
 	border-radius: 6px;

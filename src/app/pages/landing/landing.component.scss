@@ -241,7 +241,7 @@ $cream-muted: rgba(245, 234, 214, 0.75);
 
 /* ── Content area ── */
 .menu-content {
-	background: var(--c-bg-tertiary);
+	background: var(--c-bg-secondary);
 }
 
 /* ── Category tabs ── */
@@ -274,14 +274,12 @@ $cream-muted: rgba(245, 234, 214, 0.75);
 	&:hover {
 		border-color: var(--c-accent);
 		color: var(--c-accent);
-		html[data-mode='dark'] & { border-color: $gold; color: $gold; }
 	}
 
 	&--active {
 		background: var(--c-accent);
 		border-color: var(--c-accent);
 		color: var(--c-accent-contrast);
-		html[data-mode='dark'] & { background: $gold; border-color: $gold; color: var(--c-accent-contrast); }
 	}
 }
 
@@ -360,8 +358,6 @@ $cream-muted: rgba(245, 234, 214, 0.75);
 	color: var(--c-accent);
 	white-space: nowrap;
 	flex-shrink: 0;
-
-	html[data-mode='dark'] & { color: $gold; }
 }
 
 /* ── Gallery ── */

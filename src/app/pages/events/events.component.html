@@ -53,22 +53,6 @@
 		</div>
 	</section>
 
-	<section class="events-shell events-section">
-		<div class="events-section-head">
-			<h2 class="events-section-title">{{ 'Ідеї, які додають вау-ефект' | translate }}</h2>
-			<p class="events-section-text">{{ 'Пропонуємо додаткові формати, щоб подія стала особливою.' | translate }}</p>
-		</div>
-		<div class="events-grid events-grid--ideas">
-			@for (idea of ideas(); track idea.id) {
-				<article class="events-card events-card--idea">
-					<span class="material-symbols-outlined" aria-hidden="true">{{ idea.icon }}</span>
-					<h3>{{ idea.title | translate }}</h3>
-					<p>{{ idea.description | translate }}</p>
-				</article>
-			}
-		</div>
-	</section>
-
 	<section class="events-book">
 		<div class="events-shell events-book-inner">
 			<h2 class="events-book-title">{{ "Зв'яжіться з нами" | translate }}</h2>
@@ -87,6 +71,22 @@
 					Instagram
 				</a>
 			</div>
+		</div>
+	</section>
+
+	<section class="events-shell events-section">
+		<div class="events-section-head">
+			<h2 class="events-section-title">{{ 'Ідеї, які додають вау-ефект' | translate }}</h2>
+			<p class="events-section-text">{{ 'Пропонуємо додаткові формати, щоб подія стала особливою.' | translate }}</p>
+		</div>
+		<div class="events-grid events-grid--ideas">
+			@for (idea of ideas(); track idea.id) {
+				<article class="events-card events-card--idea">
+					<span class="material-symbols-outlined" aria-hidden="true">{{ idea.icon }}</span>
+					<h3>{{ idea.title | translate }}</h3>
+					<p>{{ idea.description | translate }}</p>
+				</article>
+			}
 		</div>
 	</section>
 

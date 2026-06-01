@@ -1,8 +1,4 @@
 export const translates: Record<string, Record<string, string>> = {
-	// ── UI / system ──────────────────────────────────────────────────────────
-	'Switch to dark mode':  { ua: 'Увімкнути темний режим',   en: 'Switch to dark mode' },
-	'Switch to light mode': { ua: 'Увімкнути світлий режим',  en: 'Switch to light mode' },
-
 	// ── Navigation ───────────────────────────────────────────────────────────
 	'Головна':  { en: 'Home' },
 	'Меню':     { en: 'Menu' },
@@ -32,6 +28,9 @@ export const translates: Record<string, Record<string, string>> = {
 		en: 'A unique combination of cuisine, atmosphere, and location.',
 	},
 	'Авторська кухня': { en: 'Signature cuisine' },
+	'Авторська кухня з локальних інгредієнтів — від закусок до десертів.': {
+		en: 'Signature cuisine made from local ingredients — from starters to desserts.',
+	},
 	'Українська та європейська кухня з локальними інгредієнтами. Гриль, пасти, борщ, десерти власного виробництва.': {
 		en: 'Ukrainian and European cuisine with local ingredients. Grill, pasta, borscht, house-made desserts.',
 	},

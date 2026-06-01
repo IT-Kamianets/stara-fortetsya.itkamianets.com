@@ -2,9 +2,13 @@
 	display: block;
 }
 
+$gold: #d4af6b;
+$cream: #f5ead6;
+$cream-muted: rgba(245, 234, 214, 0.65);
+$border: rgba(212, 175, 107, 0.2);
+
 .footer {
-	background: var(--c-bg-secondary);
-	border-top: 1px solid var(--c-border);
+	background: linear-gradient(160deg, #2d1f0e 0%, #1a1008 100%);
 	margin-top: auto;
 }
 
@@ -41,7 +45,7 @@
 	border-radius: 0;
 	object-fit: cover;
 	flex-shrink: 0;
-	border: 1px solid var(--c-border);
+	border: 1px solid $border;
 	image-rendering: -webkit-optimize-contrast;
 	image-rendering: crisp-edges;
 	transform: translateZ(0);
@@ -52,14 +56,14 @@
 	font-weight: 500;
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
-	color: var(--c-text-muted);
+	color: $cream-muted;
 	margin-bottom: 2px;
 }
 
 .footer-brand-name {
 	font-size: 15px;
 	font-weight: 600;
-	color: var(--c-text-secondary);
+	color: $cream;
 }
 
 .footer-col-title {
@@ -67,7 +71,7 @@
 	font-weight: 600;
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
-	color: var(--c-text-muted);
+	color: $gold;
 	margin-bottom: var(--sp-4);
 }
 
@@ -79,12 +83,12 @@
 
 .footer-link {
 	font-size: 14px;
-	color: var(--c-text-primary);
+	color: $cream-muted;
 	text-decoration: none;
 	transition: color var(--motion-fast) var(--easing);
 
 	&:hover {
-		color: var(--c-text-secondary);
+		color: $cream;
 	}
 }
 
@@ -99,7 +103,7 @@
 	align-items: flex-start;
 	gap: var(--sp-2);
 	font-size: 14px;
-	color: var(--c-text-primary);
+	color: $cream-muted;
 	text-decoration: none;
 	transition: color var(--motion-fast) var(--easing);
 
@@ -110,17 +114,18 @@
 	}
 
 	&:hover {
-		color: var(--c-text-secondary);
+		color: $cream;
 	}
 }
 
 .footer-bottom {
-	border-top: 1px solid var(--c-border);
+	border-top: 1px solid $border;
 	padding-top: var(--sp-6);
+	text-align: center;
 }
 
 .footer-copy {
 	font-size: 13px;
-	color: var(--c-text-muted);
+	color: $cream-muted;
 	text-align: center;
 }

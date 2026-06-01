@@ -105,10 +105,13 @@ $cream-muted: rgba(245, 234, 214, 0.75);
 	padding: 13px var(--sp-6);
 	background: $gold;
 	color: var(--c-gold-contrast);
+	font-family: inherit;
 	font-size: 15px;
 	font-weight: 600;
+	border: none;
 	border-radius: var(--radius-btn);
 	text-decoration: none;
+	cursor: pointer;
 	transition: background var(--motion-fast), transform var(--motion-fast);
 
 	.material-symbols-outlined { font-size: 20px; }
@@ -203,15 +206,11 @@ $cream-muted: rgba(245, 234, 214, 0.75);
 	font-weight: 700;
 	color: var(--c-text-secondary);
 	margin-bottom: var(--sp-3);
-
-	html[data-mode='dark'] & { color: $cream; }
 }
 
 .home-section-text {
 	font-size: 15px;
 	color: var(--c-text-muted);
-
-	html[data-mode='dark'] & { color: $cream-muted; }
 }
 
 .home-features-grid {
@@ -239,8 +238,6 @@ $cream-muted: rgba(245, 234, 214, 0.75);
 	color: var(--c-accent);
 	margin-bottom: var(--sp-4);
 	display: block;
-
-	html[data-mode='dark'] & { color: $gold; }
 }
 
 .home-feature-title {
@@ -399,8 +396,6 @@ $cream-muted: rgba(245, 234, 214, 0.75);
 		font-size: 28px;
 		color: var(--c-accent);
 		flex-shrink: 0;
-
-		html[data-mode='dark'] & { color: $gold; }
 	}
 
 	> div { flex: 1; min-width: 0; }

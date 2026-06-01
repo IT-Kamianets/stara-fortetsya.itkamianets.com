@@ -28,6 +28,10 @@ $border: rgba(212, 175, 107, 0.2);
 	gap: var(--sp-8);
 	margin-bottom: var(--sp-8);
 
+	@media (max-width: 639px) {
+		text-align: center;
+	}
+
 	@media (min-width: 640px) {
 		grid-template-columns: repeat(3, 1fr);
 	}
@@ -37,6 +41,11 @@ $border: rgba(212, 175, 107, 0.2);
 	display: flex;
 	align-items: center;
 	gap: var(--sp-4);
+
+	@media (max-width: 639px) {
+		flex-direction: column;
+		align-items: center;
+	}
 }
 
 .footer-emblem {
@@ -79,6 +88,11 @@ $border: rgba(212, 175, 107, 0.2);
 	display: flex;
 	flex-direction: column;
 	gap: var(--sp-2);
+	align-items: flex-start;
+
+	@media (max-width: 639px) {
+		align-items: center;
+	}
 }
 
 .footer-link {
@@ -96,6 +110,11 @@ $border: rgba(212, 175, 107, 0.2);
 	display: flex;
 	flex-direction: column;
 	gap: var(--sp-3);
+	align-items: flex-start;
+
+	@media (max-width: 639px) {
+		align-items: center;
+	}
 }
 
 .footer-contact {

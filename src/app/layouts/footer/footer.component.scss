@@ -37,6 +37,12 @@ $border: rgba(212, 175, 107, 0.2);
 	}
 }
 
+.footer-col--nav {
+	@media (max-width: 639px) {
+		display: none;
+	}
+}
+
 .footer-brand {
 	display: flex;
 	align-items: center;

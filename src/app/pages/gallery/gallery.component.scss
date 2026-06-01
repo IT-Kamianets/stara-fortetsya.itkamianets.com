@@ -8,11 +8,11 @@ $cream: #f5ead6;
 $cream-muted: rgba(245, 234, 214, 0.75);
 
 .gallery-page {
-	background: radial-gradient(ellipse at 60% 0%, #fff8f0 0%, #f5ede6 60%);
-
-	html[data-mode='dark'] & {
-		background: radial-gradient(ellipse at 60% 0%, #2a2318 0%, #282828 60%);
-	}
+	background: radial-gradient(
+		ellipse at 60% 0%,
+		var(--c-page-gradient-start) 0%,
+		var(--c-page-gradient-end) 60%
+	);
 }
 
 .gallery-shell {

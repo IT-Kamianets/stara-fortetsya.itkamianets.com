@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
 import { TranslatePipe } from '../../pipes/translate.pipe';
 
 type MenuItem = {
@@ -12,16 +12,11 @@ type MenuItem = {
 type MenuSection = {
 	id: string;
 	name: string;
+	icon: string;
 	description: string;
 	items: MenuItem[];
 };
 
-type MenuPhoto = {
-	id: string;
-	title: string;
-	src: string;
-	description: string;
-};
 
 @Component({
 	imports: [TranslatePipe],
@@ -30,445 +25,143 @@ type MenuPhoto = {
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LandingComponent {
+	readonly activeSection = signal('soups');
+
+	readonly activeItems = computed(() => {
+		const section = this.menuSections().find(s => s.id === this.activeSection());
+		return section ? section.items : [];
+	});
+
+	readonly activeDescription = computed(() => {
+		const section = this.menuSections().find(s => s.id === this.activeSection());
+		return section?.description ?? '';
+	});
+
+	readonly activeSectionName = computed(() => {
+		const section = this.menuSections().find(s => s.id === this.activeSection());
+		return section?.name ?? '';
+	});
+
+	selectSection(id: string): void {
+		this.activeSection.set(id);
+	}
+
 	readonly menuSections = signal<MenuSection[]>([
+		{
+			id: 'soups',
+			name: 'Супи',
+			icon: 'soup_kitchen',
+			description: 'Традиційні українські супи та авторські крем-супи.',
+			items: [
+				{ id: 'soup-borscht', name: 'Борщ український', weight: '350 г', price: '170 грн' },
+				{ id: 'soup-mushroom', name: 'Крем-суп грибний', weight: '350 г', price: '190 грн' },
+				{ id: 'soup-cheese', name: 'Крем-суп сирний', weight: '350 г', price: '190 грн' },
+				{ id: 'soup-bograch', name: 'Бограч', weight: '350 г', price: '260 грн' },
+			],
+		},
 		{
 			id: 'salads',
 			name: 'Салати',
-			description: 'Свіжі салати з меню ресторану.',
+			icon: 'salad',
+			description: 'Свіжі салати з локальних інгредієнтів.',
 			items: [
-				{
-					id: 'salads-caesar',
-					name: 'Цезар',
-					description: 'Мікс салату, яйце, куряче філе, сир, крутони, соус цезар.',
-					weight: '260 г',
-					price: '150 грн',
-				},
-				{
-					id: 'salads-milano',
-					name: 'Мілано',
-					description: 'Мікс салату, яйце, сир, бекон, сухарики, помідори, соус.',
-					weight: '250 г',
-					price: '120 грн',
-				},
-				{
-					id: 'salads-greek',
-					name: 'Грецький',
-					description: 'Мікс салату, огірок, помідор, перець, маслини, сир фета.',
-					weight: '250 г',
-					price: '80 грн',
-				},
-				{
-					id: 'salads-capricciosa',
-					name: 'Капричіоза',
-					description: 'Листя салату, куряче філе, овочі, сир, зелень.',
-					weight: '500 г',
-					price: '100 грн',
-				},
-				{
-					id: 'salads-firm',
-					name: 'Фірмовий',
-					description: 'Листя салату, курка, сир, горіхи, соус.',
-					weight: '250 г',
-					price: '100 грн',
-				},
-				{
-					id: 'salads-caesar-shrimp',
-					name: 'Цезар з креветками',
-					weight: '300 г',
-					price: '190 грн',
-				},
+				{ id: 'salad-caesar', name: 'Цезар', weight: '250 г', price: '210 грн' },
+				{ id: 'salad-crab', name: 'Крабовий', weight: '150 г', price: '210 грн' },
+				{ id: 'salad-tuna', name: 'Салат з тунцем', weight: '250 г', price: '230 грн' },
+				{ id: 'salad-firm', name: 'Фірмовий', weight: '250 г', price: '240 грн' },
+				{ id: 'salad-seafood', name: 'Салат з морепродуктів', weight: '250 г', price: '260 грн' },
+				{ id: 'salad-greek', name: 'Грецький', weight: '250 г', price: '190 грн' },
+				{ id: 'salad-salmon', name: 'Салат з сьомгою та авокадо', weight: '250 г', price: '195 грн' },
+				{ id: 'salad-caprese', name: 'Капрезе', weight: '250 г', price: '190 грн' },
+				{ id: 'salad-cabbage', name: 'Салат з капусти', weight: '150 г', price: '110 грн' },
+				{ id: 'salad-fortress', name: 'Стара Фортеця', weight: '250 г', price: '210 грн' },
 			],
 		},
 		{
 			id: 'cold-starters',
 			name: 'Холодні закуски',
-			description: 'Сирні, мʼясні та рибні закуски до столу.',
+			icon: 'set_meal',
+			description: 'М\'ясні, рибні та овочеві закуски до столу.',
 			items: [
-				{ id: 'cold-cheese', name: 'Сирна тарілка', weight: '200 г', price: '70 грн' },
-				{ id: 'cold-cossack', name: 'Козацька тарілка', weight: '300 г', price: '130 грн' },
-				{ id: 'cold-bread', name: 'Хлібці цибуляні', weight: '200 г', price: '20 грн' },
-				{
-					id: 'cold-smoked-lard',
-					name: 'Плато «Копчене сало»',
-					weight: '200 г',
-					price: '200 грн',
-				},
-				{
-					id: 'cold-pate',
-					name: 'Паштет з курячою печінкою',
-					weight: '200 г',
-					price: '65 грн',
-				},
-				{
-					id: 'cold-fish',
-					name: 'Плато «Річкове асорті»',
-					weight: '300 г',
-					price: '300 грн',
-				},
-				{ id: 'cold-snacks', name: 'Закуски мʼясні', weight: '300 г', price: '140 грн' },
-				{
-					id: 'cold-herring',
-					name: 'Оселедець «Дністровський»',
-					weight: '250 г',
-					price: '50 грн',
-				},
-			],
-		},
-		{
-			id: 'first-courses',
-			name: 'Перші страви',
-			description: 'Супи, бульйони та перші страви.',
-			items: [
-				{ id: 'first-zhurek', name: 'Суп «Журек»', weight: '250 г', price: '45 грн' },
-				{
-					id: 'first-parsnip',
-					name: 'Крем-суп з пастернаку',
-					weight: '250 г',
-					price: '75 грн',
-				},
-				{ id: 'first-cheese', name: 'Сирний крем-суп', weight: '250 г', price: '50 грн' },
-				{
-					id: 'first-fish',
-					name: 'Рибні кнелі з рибними паличками',
-					weight: '350 г',
-					price: '50 грн',
-				},
-				{
-					id: 'first-vegetable',
-					name: 'Овочевий бульйон',
-					weight: '350 г',
-					price: '50 грн',
-				},
-				{ id: 'first-bograch', name: 'Бограч', weight: '250 г', price: '75 грн' },
-				{ id: 'first-hunting', name: 'Юшка охотницька', weight: '300 мл', price: '95 грн' },
-				{
-					id: 'first-borscht',
-					name: 'Борщ від газдині',
-					weight: '300 мл',
-					price: '80 грн',
-				},
-				{
-					id: 'first-lentil',
-					name: 'Крем-суп чечевичний',
-					weight: '250 мл',
-					price: '70 грн',
-				},
-				{ id: 'first-day', name: 'Суп дня', weight: '250 мл', price: '80 грн' },
-			],
-		},
-		{
-			id: 'pasta',
-			name: 'Пасти',
-			description: 'Пасти з вершковими, мʼясними та морськими акцентами.',
-			items: [
-				{ id: 'pasta-carbonara', name: 'Карбонара', weight: '300 г', price: '130 грн' },
-				{ id: 'pasta-carbonata', name: 'Карбоната', weight: '300 г', price: '130 грн' },
-				{
-					id: 'pasta-seafood',
-					name: 'Паста з морепродуктами',
-					weight: '300 г',
-					price: '170 грн',
-				},
-				{
-					id: 'pasta-mushrooms',
-					name: 'Спеццле з грибами',
-					weight: '300 г',
-					price: '130 грн',
-				},
+				{ id: 'cold-herring', name: 'Оселедець Дністровський', weight: '100 г', price: '110 грн' },
+				{ id: 'cold-cossack', name: 'Козацька втіха', weight: '300 г', price: '260 грн' },
+				{ id: 'cold-meat', name: 'М\'ясна тарілка', weight: '300 г', price: '410 грн' },
+				{ id: 'cold-vegetables', name: 'Овочева нарізка', weight: '100 г', price: '55 грн' },
+				{ id: 'cold-italian', name: 'Італійське плато', weight: '100 г', price: '150 грн' },
+				{ id: 'cold-mushrooms', name: 'Мариновані гриби', weight: '100 г', price: '75 грн' },
 			],
 		},
 		{
 			id: 'hot',
 			name: 'Гарячі страви',
-			description: 'Основні гарячі страви з мʼяса, птиці та овочів.',
+			icon: 'local_fire_department',
+			description: 'Основні гарячі страви з м\'яса, птиці та овочів.',
 			items: [
-				{ id: 'hot-deruny', name: 'Деруни звичайні', weight: '6 шт', price: '150 грн' },
-				{
-					id: 'hot-deruny-mushrooms',
-					name: 'Деруни з грибами',
-					weight: '4 шт',
-					price: '230 грн',
-				},
-				{
-					id: 'hot-deruny-pan',
-					name: 'Деруни паньські',
-					weight: '300 г',
-					price: '250 грн',
-				},
-				{
-					id: 'hot-meat-podil',
-					name: 'Мʼясо по-подільськи',
-					weight: '300 г',
-					price: '300 грн',
-				},
-				{
-					id: 'hot-cutlet',
-					name: 'Котлета по-камʼянецьки',
-					description: 'Ніжна котлета з грибним соусом.',
-					weight: '300 г',
-					price: '250 грн',
-				},
-				{
-					id: 'hot-gulyanets',
-					name: 'Гулянець з грибами та сиром',
-					weight: '200 г',
-					price: '270 грн',
-				},
-				{
-					id: 'hot-chicken-baked',
-					name: 'Курка запечена',
-					weight: '400 г',
-					price: '95 грн',
-				},
-				{
-					id: 'hot-chicken-zrazy',
-					name: 'Курячі зрази з мʼясом',
-					weight: '4 шт',
-					price: '35 грн',
-				},
-				{ id: 'hot-nuggets', name: 'Нагетси з курятини', weight: '4 шт', price: '35 грн' },
-				{
-					id: 'hot-halushky',
-					name: 'Галушки з бринзою та сиром',
-					weight: '300 г',
-					price: '120 грн',
-				},
-				{ id: 'hot-rice', name: 'Рис по-східному', weight: '300 г', price: '180 грн' },
+				{ id: 'hot-deruny', name: 'Деруни зі сметаною', weight: '6 шт', price: '160 грн' },
+				{ id: 'hot-deruny-pan', name: 'Дерун панський', weight: '500 г', price: '260 грн' },
+				{ id: 'hot-deruny-mushrooms', name: 'Деруни з грибами', weight: '4 шт', price: '210 грн' },
+				{ id: 'hot-lavash', name: 'Гриль-лаваш з сиром', weight: '1 шт', price: '160 грн' },
+				{ id: 'hot-pockets', name: 'Гаманці з грибами та сиром', weight: '200 г', price: '280 грн' },
+				{ id: 'hot-camembert', name: 'Сир камамбер на грилі під ягідним соусом', weight: '1 порц', price: '260 грн' },
+				{ id: 'hot-chicken', name: 'Куряча грудка з моцарелою', weight: '1 порц', price: '360 грн' },
+				{ id: 'hot-meat-podil', name: 'М\'ясо по-подільськи', weight: '350 г', price: '310 грн' },
+				{ id: 'hot-cutlet', name: 'Котлета по-кам\'янецьки', weight: '350 г', price: '290 грн' },
 			],
 		},
 		{
 			id: 'grill',
-			name: 'Страви на вугіллі',
-			description: 'Мʼясо, сир та овочі з мангалу.',
+			name: 'Страви на мангалі',
+			icon: 'outdoor_grill',
+			description: 'М\'ясо, птиця та риба з вугілля.',
 			items: [
-				{
-					id: 'grill-pork-entrecote',
-					name: 'Свинина антрекот',
-					weight: '400 г',
-					price: '350 грн',
-				},
-				{
-					id: 'grill-pork-neck',
-					name: 'Свинина ошийок',
-					weight: '400 г',
-					price: '350 грн',
-				},
-				{
-					id: 'grill-veal-cherry',
-					name: 'Телятина на мангалі з вишневим соусом',
-					weight: '250 г',
-					price: '400 грн',
-				},
-				{
-					id: 'grill-chicken-mozzarella',
-					name: 'Куряче філе з моцарелою',
-					weight: '450 г',
-					price: '350 грн',
-				},
-				{
-					id: 'grill-camembert-truffle',
-					name: 'Сир камамбер з білим трюфелем',
-					weight: '200 г',
-					price: '250 грн',
-				},
-				{
-					id: 'grill-vegetables',
-					name: 'Овочі на багатті',
-					weight: '300 г',
-					price: '95 грн',
-				},
-				{ id: 'grill-lavash', name: 'Рулет з лаваша з сиром', weight: '1 шт' },
-				{
-					id: 'grill-neck-mustard',
-					name: 'Ошийок у гірчичному соусі',
-					weight: '200 г',
-					price: '85 грн',
-				},
-				{
-					id: 'grill-ribs',
-					name: 'Ребра з медово-гірчичним соусом',
-					weight: '200 г',
-					price: '85 грн',
-				},
-				{
-					id: 'grill-camembert-grapes',
-					name: 'Сир камамбер з виноградом на грилі під ягідним соусом',
-					weight: '100 г',
-					price: '170 грн',
-				},
-				{
-					id: 'grill-bone-steak',
-					name: 'Стейк на кістці з вишнево-вершковим соусом',
-					weight: '350 г',
-					price: '80 грн',
-				},
-				{
-					id: 'grill-veal-steak',
-					name: 'Телячий стейк на мангалі',
-					weight: '200 г',
-					price: '70 грн',
-				},
-				{
-					id: 'grill-potato',
-					name: 'Картопля на мангалі',
-					weight: '100 г',
-					price: '45 грн',
-				},
+				{ id: 'grill-pork', name: 'Свинина (антрекот)', weight: '250–300 г', price: '360 грн' },
+				{ id: 'grill-neck', name: 'Ошийок у гірчичному соусі', weight: '250–300 г', price: '360 грн' },
+				{ id: 'grill-chicken', name: 'Куряче філе з моцарелою', weight: '450 г', price: '360 грн' },
+				{ id: 'grill-ribs', name: 'Ребра з медово-гірчичним соусом', weight: '250–300 г', price: '310 грн' },
+				{ id: 'grill-vegetables', name: 'Овочі гриль', weight: '300 г', price: '210 грн' },
+				{ id: 'grill-veal', name: 'Телятина на мангалі з вишневим соусом', weight: '250 г', price: '410 грн' },
+				{ id: 'grill-potato', name: 'Картопля на мангалі', weight: '1 порц', price: '130 грн' },
+				{ id: 'grill-fish', name: 'Річкова риба на вугіллі', weight: '1 порц', price: '310 грн' },
+			],
+		},
+		{
+			id: 'pasta',
+			name: 'Паста',
+			icon: 'ramen_dining',
+			description: 'Паста з авторськими соусами та морепродуктами.',
+			items: [
+				{ id: 'pasta-bolognese', name: 'Болоньєзе', weight: '300 г', price: '210 грн' },
+				{ id: 'pasta-carbonara', name: 'Карбонара', weight: '300 г', price: '220 грн' },
+				{ id: 'pasta-seafood', name: 'Паста з морепродуктами', weight: '300 г', price: '290 грн' },
+				{ id: 'pasta-shrimp', name: 'Паста з креветками', weight: '300 г', price: '290 грн' },
+				{ id: 'pasta-salmon', name: 'Паста з лососем та томатами', weight: '300 г', price: '380 грн' },
 			],
 		},
 		{
 			id: 'garnishes',
 			name: 'Гарніри',
+			icon: 'grocery',
 			description: 'Гарніри до основних страв.',
 			items: [
-				{
-					id: 'garnish-banosh',
-					name: 'Банош з бринзою та шкварками',
-					weight: '250 г',
-					price: '55 грн',
-				},
-				{
-					id: 'garnish-italian-rice',
-					name: 'Італійський рис з овочами',
-					weight: '250 г',
-					price: '50 грн',
-				},
-				{
-					id: 'garnish-bulgur',
-					name: 'Булгур з телятиною',
-					weight: '250 г',
-					price: '40 грн',
-				},
-				{ id: 'garnish-mashed', name: 'Картопляне пюре', weight: '200 г', price: '45 грн' },
-				{
-					id: 'garnish-village-potato',
-					name: 'Картопля по-селянське',
-					weight: '200 г',
-					price: '45 грн',
-				},
-				{ id: 'garnish-fries', name: 'Картопля фрі', weight: '200 г', price: '45 грн' },
-				{
-					id: 'garnish-banosh-side',
-					name: 'Банош з свиною шкваркою та піджаркою',
-					weight: '250 г',
-					price: '150 грн',
-				},
-				{
-					id: 'garnish-indian-chicken',
-					name: 'Індійський рис з куркою та овочами',
-					weight: '250 г',
-					price: '160 грн',
-				},
-				{
-					id: 'garnish-indian-vegetables',
-					name: 'Індійський рис з овочами',
-					weight: '250 г',
-					price: '90 грн',
-				},
-				{
-					id: 'garnish-fries-side',
-					name: 'Картопля фрі',
-					weight: '200 г',
-					price: '85 грн',
-				},
-			],
-		},
-		{
-			id: 'sauces',
-			name: 'Соуси',
-			description: 'Соуси до гарячих страв, грилю та закусок.',
-			items: [
-				{ id: 'sauce-bbq', name: 'BBQ', weight: '50 г', price: '20 грн' },
-				{ id: 'sauce-cheese', name: 'Сирний соус', weight: '50 г', price: '25 грн' },
-				{ id: 'sauce-horseradish', name: 'Соус з хроном', weight: '50 г', price: '20 грн' },
-				{ id: 'sauce-herbs', name: 'Злаковий соус', weight: '50 г', price: '20 грн' },
-				{ id: 'sauce-tomato', name: 'Томатний соус', weight: '50 г', price: '20 грн' },
-				{ id: 'sauce-mushroom', name: 'Грибний соус', weight: '50 г', price: '20 грн' },
-				{
-					id: 'sauce-mustard-honey',
-					name: 'Гірчично-медовий соус',
-					weight: '50 г',
-					price: '20 грн',
-				},
+				{ id: 'garnish-village', name: 'Картопля по-селянськи', weight: '200 г', price: '105 грн' },
+				{ id: 'garnish-mashed', name: 'Картопляне пюре', weight: '200 г', price: '105 грн' },
+				{ id: 'garnish-fries', name: 'Картопля фрі', weight: '250 г', price: '105 грн' },
+				{ id: 'garnish-banosh', name: 'Банош з бринзою та шкварками', weight: '250 г', price: '210 грн' },
 			],
 		},
 		{
 			id: 'desserts',
 			name: 'Десерти',
-			description: 'Солодкі страви та морозиво.',
+			icon: 'cake',
+			description: 'Солодкі страви власного виробництва.',
 			items: [
-				{
-					id: 'dessert-chocolate',
-					name: 'Шоколадний кекс з соусом',
-					weight: '100 г',
-					price: '110 грн',
-				},
-				{
-					id: 'dessert-pancakes-poppy',
-					name: 'Млинці з маком та ванільно-заварним соусом',
-					weight: '2 шт',
-					price: '35 грн',
-				},
-				{
-					id: 'dessert-pancakes-apple',
-					name: 'Млинці з яблуком та апельсином',
-					weight: '2 шт',
-					price: '35 грн',
-				},
-				{ id: 'dessert-pear', name: 'Груша у вині з морозивом', weight: '200 г' },
-				{
-					id: 'dessert-cheesecakes',
-					name: 'Сирники з ягідним соусом',
-					weight: '200 г',
-					price: '90 грн',
-				},
-				{ id: 'dessert-ice-cream', name: 'Морозиво з фруктами', weight: '150 г' },
+				{ id: 'dessert-fondan', name: 'Шоколадний фондан', weight: '130 г', price: '200 грн' },
+				{ id: 'dessert-pancakes-nutella', name: 'Млинці з нутеллою та карамелізованим бананом', weight: '2 шт', price: '140 грн' },
+				{ id: 'dessert-pancakes-apple', name: 'Млинці з яблуком та апельсинами', weight: '2 шт', price: '130 грн' },
+				{ id: 'dessert-pancakes-fantasy', name: 'Млинці Фантазія', weight: '1 порц', price: '140 грн' },
+				{ id: 'dessert-cheesecakes', name: 'Сирники з ягідним соусом', weight: '200 г', price: '160 грн' },
 			],
 		},
 	]);
 
-	readonly dishPhotos = signal<MenuPhoto[]>([
-		{
-			id: 'dish-caesar',
-			title: 'Салат «Цезар» з куркою',
-			src: '/assets/menu/dish-caesar.jpg',
-			description: 'Преміальна подача салату «Цезар».',
-		},
-		{
-			id: 'dish-greek',
-			title: 'Грецький салат',
-			src: '/assets/menu/dish-greek.jpg',
-			description: 'Свіжа овочева композиція.',
-		},
-		{
-			id: 'dish-ribs',
-			title: 'Ребра на грилі',
-			src: '/assets/menu/dish-ribs.jpg',
-			description: 'Гаряча страва з соусом.',
-		},
-		{
-			id: 'dish-chicken',
-			title: 'Куряче філе гриль',
-			src: '/assets/menu/dish-chicken-grill.jpg',
-			description: 'Подача з фрі та соусом.',
-		},
-		{
-			id: 'dish-meat',
-			title: 'Мʼясна нарізка',
-			src: '/assets/menu/dish-meat-platter.jpg',
-			description: 'Асорті мʼясних делікатесів.',
-		},
-		{
-			id: 'dish-mussels',
-			title: 'Мідії у вершковому соусі',
-			src: '/assets/menu/dish-mussels.jpg',
-			description: 'Ніжні морепродукти.',
-		},
-		{
-			id: 'dish-liver',
-			title: 'Печінка з картопляним пюре',
-			src: '/assets/menu/dish-liver.jpg',
-			description: 'Домашня подача з зеленню.',
-		},
-	]);
 }

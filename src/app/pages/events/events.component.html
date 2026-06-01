@@ -6,8 +6,7 @@
 				<h1 class="events-title">{{ "Івенти у «Старій фортеці»" | translate }}</h1>
 				<p class="events-subtitle">{{ "Ми організовуємо події, що запам'ятовуються: від камерних дегустацій до масштабних свят з преміальною подачею." | translate }}</p>
 				<div class="events-hero-actions">
-					<a class="events-cta" href="tel:+380674939000">{{ 'Забронювати дату' | translate }}</a>
-					<span class="events-cta-note">+38 (067) 493 9000</span>
+					<button class="events-cta" type="button" (click)="modal.set(true)">{{ 'Організувати подію' | translate }}</button>
 				</div>
 			</div>
 			<div class="events-hero-card">
@@ -90,4 +89,12 @@
 			</div>
 		</div>
 	</section>
+
+@if (modal()) {
+	<app-contact-modal
+		title="Організувати подію"
+		messagePrefix="Організація події — Стара фортеця"
+		(closed)="modal.set(false)"
+	/>
+}
 </section>

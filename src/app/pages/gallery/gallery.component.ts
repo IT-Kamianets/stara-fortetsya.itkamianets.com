@@ -22,9 +22,7 @@ export class GalleryComponent {
 		'assets/gallery/photo-07.jpg',
 		'assets/gallery/photo-08.jpg',
 		'assets/gallery/photo-09.jpg',
-		'assets/gallery/photo-10.jpg',
-		'assets/gallery/photo-11.jpg',
-		'assets/gallery/photo-12.jpg',
+		'assets/gallery/photo-010.jpg',
 	];
 
 	open(src: string): void {

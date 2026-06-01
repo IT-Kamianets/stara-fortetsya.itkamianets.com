@@ -9,11 +9,11 @@ $cream: #f5ead6;
 $cream-muted: rgba(245, 234, 214, 0.75);
 
 .reviews-page {
-	background: radial-gradient(ellipse at 60% 0%, #fff8f0 0%, #f5ede6 60%);
-
-	html[data-mode='dark'] & {
-		background: radial-gradient(ellipse at 60% 0%, #2a2318 0%, #282828 60%);
-	}
+	background: radial-gradient(
+		ellipse at 60% 0%,
+		var(--c-page-gradient-start) 0%,
+		var(--c-page-gradient-end) 60%
+	);
 }
 
 .reviews-shell {
@@ -156,12 +156,12 @@ $cream-muted: rgba(245, 234, 214, 0.75);
 }
 
 .reviews-avatar {
-	width: 40px;
-	height: 40px;
+	width: 44px;
+	height: 44px;
 	border-radius: 999px;
-	background: linear-gradient(135deg, #4a2c00, #8b4513);
+	background: #2d1f0e;
 	color: $gold;
-	font-size: 16px;
+	font-size: 17px;
 	font-weight: 700;
 	display: flex;
 	align-items: center;
@@ -172,22 +172,22 @@ $cream-muted: rgba(245, 234, 214, 0.75);
 .reviews-name {
 	font-size: 14px;
 	font-weight: 600;
-	color: var(--c-text-secondary);
+	color: #24170d;
 }
 
 .reviews-date {
 	font-size: 12px;
-	color: var(--c-text-muted);
+	color: #746756;
 }
 
 .reviews-source {
 	margin-left: auto;
 	font-size: 11px;
 	font-weight: 500;
-	color: var(--c-text-muted);
-	border: 1px solid var(--c-border);
+	color: #746756;
+	border: 1px solid #e1d2bf;
 	border-radius: 4px;
-	padding: 2px 7px;
+	padding: 2px 8px;
 }
 
 .reviews-rating {
@@ -197,7 +197,7 @@ $cream-muted: rgba(245, 234, 214, 0.75);
 
 .reviews-star {
 	font-size: 17px;
-	color: var(--c-border);
+	color: #e1d2bf;
 }
 
 .reviews-star--filled {
@@ -207,7 +207,7 @@ $cream-muted: rgba(245, 234, 214, 0.75);
 .reviews-text {
 	font-size: 14px;
 	line-height: 1.7;
-	color: var(--c-text-primary);
+	color: #3a2a1a;
 }
 
 /* ── CTA ── */
@@ -248,7 +248,7 @@ $cream-muted: rgba(245, 234, 214, 0.75);
 	align-items: center;
 	padding: 12px var(--sp-6);
 	background: $gold;
-	color: #1a1008;
+	color: var(--c-accent-contrast);
 	font-size: 14px;
 	font-weight: 600;
 	border-radius: var(--radius-btn);

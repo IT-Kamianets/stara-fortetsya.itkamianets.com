@@ -3,26 +3,36 @@
 	color-scheme: light;
 
 	/* brand / actions */
-	--c-primary: #256eff;
-	--c-primary-hover: #0051f1;
-	--c-secondary: #c53d3d;
-	--c-secondary-hover: #962a2a;
+	--c-primary: #8a4f1c;
+	--c-primary-hover: #6f3e14;
+	--c-secondary: #b4552f;
+	--c-secondary-hover: #8f3f22;
+	--c-accent: #8a4f1c;
+	--c-accent-hover: #6f3e14;
+	--c-accent-contrast: #ffffff;
+	--c-gold: #b9853f;
+	--c-gold-bright: #d4af6b;
+	--c-gold-contrast: #1a1008;
 
 	/* surfaces */
-	--c-bg-primary: #f3f4f7;
+	--c-bg-primary: #f6efe7;
 	--c-bg-secondary: #ffffff;
-	--c-bg-tertiary: #fcfdfe;
+	--c-bg-tertiary: #fffaf3;
+	--c-page-gradient-start: #fff8f0;
+	--c-page-gradient-end: #f1e5d8;
+	--c-hero-start: #2d1f0e;
+	--c-hero-end: #1a1008;
 
 	/* content */
-	--c-text-primary: #5f6066;
-	--c-text-secondary: #17224f;
-	--c-text-muted: #8b8d94;
-	--c-placeholder: #313335ab;
+	--c-text-primary: #4e4032;
+	--c-text-secondary: #24170d;
+	--c-text-muted: #746756;
+	--c-placeholder: rgba(78, 64, 50, 0.68);
 
 	/* borders & elevation */
-	--c-border: #eceef5;
+	--c-border: #e1d2bf;
 	--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
-	--shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+	--shadow-md: 0 10px 30px rgba(48, 31, 16, 0.12);
 
 	/* typography */
 	--ff-base: 'Lora', Georgia, 'Times New Roman', serif;
@@ -61,7 +71,7 @@
 	--motion-slow: 0.4s;
 
 	/* focus */
-	--focus-ring: 0 0 0 3px rgba(37, 110, 255, 0.35);
+	--focus-ring: 0 0 0 3px rgba(138, 79, 28, 0.3);
 }
 
 /* ========= modes ========= */
@@ -69,20 +79,30 @@ html[data-mode='dark'] {
 	color-scheme: dark;
 
 	/* surfaces — warm dark brown palette */
-	--c-bg-primary: #1e1610;
-	--c-bg-secondary: #2a1e14;
-	--c-bg-tertiary: #352719;
+	--c-bg-primary: #17110c;
+	--c-bg-secondary: #241911;
+	--c-bg-tertiary: #2f2116;
+	--c-page-gradient-start: #2a2318;
+	--c-page-gradient-end: #17110c;
+	--c-hero-start: #2d1f0e;
+	--c-hero-end: #120b06;
+	--c-accent: #d4af6b;
+	--c-accent-hover: #e0c07a;
+	--c-accent-contrast: #1a1008;
+	--c-gold: #d4af6b;
+	--c-gold-bright: #e0c07a;
+	--c-gold-contrast: #1a1008;
 
 	/* borders & elevation */
-	--c-border: rgba(212, 175, 107, 0.15);
+	--c-border: rgba(212, 175, 107, 0.22);
 	--shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.4);
 	--shadow-md: 0 10px 30px rgba(0, 0, 0, 0.5);
 
 	/* content */
-	--c-text-primary: #d4c4ae;
-	--c-text-secondary: #f5ead6;
-	--c-text-muted: #9a8a74;
-	--c-placeholder: #8a7a64;
+	--c-text-primary: #e0d1bd;
+	--c-text-secondary: #fff2dc;
+	--c-text-muted: #bca98f;
+	--c-placeholder: #b09b82;
 
 	/* focus */
 	--focus-ring: 0 0 0 3px rgba(212, 175, 107, 0.35);

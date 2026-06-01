@@ -13,9 +13,9 @@
 						<span class="material-symbols-outlined" aria-hidden="true">restaurant_menu</span>
 						{{ 'Переглянути меню' | translate }}
 					</a>
-					<a class="home-cta-secondary" routerLink="/contacts">
+					<button class="home-cta-secondary" type="button" (click)="tableModal.set(true)">
 						{{ 'Забронювати стіл' | translate }}
-					</a>
+					</button>
 				</div>
 			</div>
 			<div class="home-hero-badge">
@@ -70,7 +70,7 @@
 					{{ 'Щодня з 10:00 до 22:00 ми приймаємо гостей у затишному залі та на відкритій терасі. За будь-якою додатковою інформацією звертайтеся до нас за телефоном.' | translate }}
 				</p>
 				<div class="home-about-actions">
-					<a class="home-cta-outline" routerLink="/events">{{ 'Організувати подію' | translate }}</a>
+					<button class="home-cta-outline" type="button" (click)="eventModal.set(true)">{{ 'Організувати подію' | translate }}</button>
 					<a class="home-cta-outline" routerLink="/contacts">{{ 'Контакти' | translate }}</a>
 				</div>
 			</div>
@@ -137,5 +137,21 @@
 			<span class="material-symbols-outlined home-nav-card-arrow" aria-hidden="true">arrow_forward</span>
 		</a>
 	</section>
+
+@if (tableModal()) {
+	<app-contact-modal
+		title="Забронювати стіл"
+		messagePrefix="Бронювання столу — Стара фортеця"
+		(closed)="tableModal.set(false)"
+	/>
+}
+
+@if (eventModal()) {
+	<app-contact-modal
+		title="Організувати подію"
+		messagePrefix="Організація події — Стара фортеця"
+		(closed)="eventModal.set(false)"
+	/>
+}
 
 </div>

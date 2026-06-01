@@ -111,9 +111,11 @@ const IDEAS = [
 	},
 ];
 
+import { ContactModalComponent } from '../../shared/contact-modal/contact-modal.component';
+
 @Component({
 	selector: 'app-events',
-	imports: [TranslatePipe],
+	imports: [TranslatePipe, ContactModalComponent],
 	templateUrl: './events.component.html',
 	styleUrl: './events.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
@@ -122,4 +124,5 @@ export class EventsComponent {
 	readonly eventTypes = signal(EVENT_TYPES);
 	readonly holidays = signal(HOLIDAYS);
 	readonly ideas = signal(IDEAS);
+	readonly modal = signal(false);
 }
